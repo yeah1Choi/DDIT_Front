@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<style type="text/css">
+p {
+	border: 3px double blue;
+	padding: 10px;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(() => {
+	$('.pp').on('click',function(){
+		$(this).css('font-size','1.5rem');
+	})
+	
+	$('#clone').on('click',function(){
+/* 		vp1 = $('#p1').clone();
+		$('#result1').append(vp1);
+		vp1.appendTo($('#result1')); */
+		
+		$('#p1').clone().appendTo($('#result1'));
+	})
+	
+	$('#clonetrue').on('click',function(){
+		// $('#result2').append($('#p2')).clone(true);
+		
+		$('#p2').clone(true).appendTo($('#result2'));
+	})
+})
+</script>
+</head>
+<body>
+	<h2></h2>
+	<input type="button" value="clone" id="clone"/> <!-- 이벤트 복사 안함 -->
+	<input type="button" value="clonetrue" id="clonetrue"/> <!-- 이벤트까지 복사함 -->
+	<br />
+	<p id="p1" class="pp">무궁화 꽃이 피었습니다11 - 클릭하세요</p>
+	<p id="p2" class="pp">무궁화 꽃이 피었습니다22 - 클릭하세요</p>
+	<div id="result1"></div>
+	<div id="result2"></div>
+	<hr color="red" />
+</body>
+</html>

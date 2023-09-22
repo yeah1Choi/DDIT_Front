@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<style type="text/css">
+img {
+	width: 100px;
+	height: 100px;
+	box-sizing: border-box;
+}
+
+p {
+	padding: 10px;
+	border: 2px dotted gold;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	arr = [ "국화.jpg", "딸기스무디.jpg", "등대.jpg", "Penguins.jpg", "대나무숲.jpg",
+			"Jellyfish.jpg", "단풍.jpg", "핫초코.jpg", "호랑이.jpg", "사막.jpg", "사자.jpg" ]
+
+	$(function() {
+		$('#append').on('click', function() {
+			let rand = Math.floor(Math.random() * arr.length);
+
+			//이미지 태그 생성
+			vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function() {
+					$(this).css('border', '3px solid gold');
+				}
+			})
+
+			// result1에 추가
+			//$('#result1').append(vimg);
+			$(vimg).appendTo('#result1');
+		})
+
+		$('#prepend').on('click', function() {
+			let rand = Math.floor(Math.random() * arr.length);
+
+			vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function() {
+					$(this).css('border', '3px solid gold');
+				}
+			})
+
+			$('#result2').prepend(vimg); /* prepend() : 제일 앞에서 추가 */
+		})
+
+		$('#before').on('click', function() {
+			let rand = Math.floor(Math.random() * arr.length);
+
+			vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function() {
+					$(this).css('border', '3px solid gold');
+				}
+			})
+
+			//$('#result3').before(vimg);
+			vimg.insertBefore($('#result3'));
+		})
+
+		$('#after').on('click', function() {
+			let rand = Math.floor(Math.random() * arr.length);
+
+			vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function() {
+					$(this).css('border', '3px solid gold');
+				}
+			})
+
+			//$('#result4').after(vimg);
+			vimg.insertAfter($('#result4'));
+		})
+
+		$('#append2').on('click', function() {
+			let rand = Math.floor(Math.random() * arr.length);
+
+			vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function() {
+					$(this).css('border', '3px solid gold');
+				}
+			})
+			
+			$('#reault12').append(vimg);
+		})
+
+		$('#prepend2').on('click', function() {
+			let rand = Math.floor(Math.random() * arr.length);
+
+			vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function() {
+					$(this).css('border', '3px solid gold');
+				}
+			})
+			
+			$('#result22').prepend(vimg);
+		})
+
+		$('#before2').on('click', function() {
+			let rand = Math.floor(Math.random() * arr.length);
+
+			vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function() {
+					$(this).css('border', '3px solid gold');
+				}
+			})
+			
+			$('#result32').before(vimg);
+		})
+
+		$('#after2').on('click', function() {
+			let rand = Math.floor(Math.random() * arr.length);
+
+			vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function() {
+					$(this).css('border', '3px solid gold');
+				}
+			})
+			
+			$('#result42').after(vimg);
+		})
+	})
+</script>
+</head>
+<body>
+	<h2></h2>
+	<input type="button" value="append" id="append" />
+	<input type="button" value="prepend" id="prepend" />
+	<input type="button" value="before" id="before" />
+	<input type="button" value="after" id="after" />
+	<br />
+	<div id="result1"></div>
+	<div id="result2"></div>
+	<div id="result3"></div>
+	<div id="result4"></div>
+	<hr color="red" />
+
+	<h2></h2>
+	<input type="button" value="append" id="append2" />
+	<input type="button" value="prepend" id="prepend2" />
+	<input type="button" value="before" id="before2" />
+	<input type="button" value="after" id="after2" />
+	<br />
+	<p id="result12">호랑이</p>
+	<p id="result22">펭귄</p>
+	<p id="result32">딸기스무디</p>
+	<p id="result42">핫초코</p>
+	<hr color="red" />
+</body>
+</html>

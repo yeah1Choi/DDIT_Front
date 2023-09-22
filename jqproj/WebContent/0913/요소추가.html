@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<style type="text/css">
+img {
+	height: 100px;
+	width: 100px;
+	box-sizing: border-box;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+proc1 = () => {
+/*	
+	txt = document.createTextNode('Hello');
+	
+	ptag = document.createElement('p');
+	ptag.name = 'aa';
+	ptag.setAttribute('class','aa');
+	ptag.onclick(function(){
+		alert("hello");
+	});
+	
+	ptag.appendChild(txt);
+	
+	document.querySelector('#result1').appendChild(ptag);
+*/	
+	////////////////////////////////////////////////////
+	
+	ptag = $("<p class='aa' name='aa' onclick='pp()'>Hello</p>");
+//	$('#result1').append(ptag); // 부모.append(자식)
+	ptag.appendTo($('#result1')); // 자식.appendTo(부모)
+}
+
+pp = () => {
+	alert("hello");
+}
+
+proc2 = () => {
+	//p태그생성
+	$('<p>Hello</p>',{
+		'class' : 'aa',
+		'name' : 'aa',
+		'text' : 'Hello',
+		'click' : function(){ alert("Hello"); }
+	}).appendTo($('#result2'));
+}
+
+proc3 = () => {
+	// 이미지 생성
+//	vimg = $('<img src="../images/딸기스무디.jpg" alt="딸기스무디.jpg" onclick="imgClick(this)"/>')
+/* 	vimg = $('<img>',{
+		'src' : '../images/딸기스무디.jpg',
+		'alt' : '딸기스무디.jpg',
+		'click' : function(){ // this를 쓸 때 람다함수 쓸 수 없음
+			$(this).css("border","2px solid red");
+		}
+	}) */
+	vimg = $('<img>',{
+		'src' : '../images/딸기스무디.jpg',
+		'alt' : '딸기스무디.jpg',
+		'click' : imgProc
+	})
+	
+	$('#result3').append(vimg);
+}
+
+imgClick = (param) => {
+//	param.style.border = "2px solid green";
+	$(param).css("border","2px solid red");
+}
+
+imgProc = function(){
+	$(this).css("border","2px solid red");
+}
+</script>
+</head>
+<body>
+	<h2>id=result1인 요소에 Hello 문자를 갖는 p태그 생성</h2>
+	<input type="button" value="click" id="btn1" onclick="proc1()" />
+	<br />
+	<div id="result1"></div>
+	<hr color="red" />
+
+	<h2></h2>
+	<input type="button" value="click" id="btn1" onclick="proc2()" />
+	<br />
+	<div id="result2"></div>
+	<hr color="red" />
+
+	<h2></h2>
+	<input type="button" value="click" id="btn1" onclick="proc3()" />
+	<br />
+	<div id="result3"></div>
+	<hr color="red" />
+</body>
+</html>

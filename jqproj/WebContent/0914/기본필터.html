@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<style type="text/css">
+table {
+	border: 1px solid blue;
+}
+td {
+	border: 1px solid blue;
+	width: 200px;
+	height: 50px;
+	text-align: center;
+	padding: 20px;
+	box-sizing: border-box;
+}
+th {
+	border: 1px solid blue;
+	height: 50px;
+	font-size: 2.0rem;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(() => {
+	$('#btn1').on('click',() => {
+		$('#result1 ul li:first').css('background','yellow');
+	 	$('#result1 > ul > li:last').css('background','yellow');
+		$('#result1 li:eq(5)').css('background','red');
+		//$('#result1 li:lt(4)').css('font-size','2.0rem').css('font-weight','bold');
+		$('#result1 li:lt(4)').css({'font-size' : '2.0rem', 'font-weight' : 'bold', 'font-style' : 'normal'});
+	})
+	
+	$('#btn2').on('click',() => {
+		$('#result1 ul li').first().css('background','orange');
+	 	$('#result1 > ul > li').last().css('background','orange');
+		$('#result1 li').eq(5).css('background','blue');
+		$('#result1 li').filter(':lt(4)').css({'font-size' : '3.0rem', 'font-weight' : 'normal', 'font-style' : 'italic'});
+	})
+	
+	$('#btn3').on('click',function(){
+		$('#result2 tr:even').css('background','lightyellow');
+		
+		$('#result2 tr:first').css('background','lightblue');
+	})
+})
+</script>
+</head>
+<body>
+	<h2>기본 필터</h2>
+	<p>:first, :last, :eq, :lt, :gt</p>
+	<p>권장하지 않는 필터 => 대신 메소드를 사용</p>
+	<p>.first(), .last(), .eq(idx), .filter(':lt(idx)'),
+		.filter(':gt(idx)')</p>
+	<input type="button" value="기본필터" id="btn1" />
+	<input type="button" value="필터메소드" id="btn2" />
+	<br />
+	<div id="result1">
+		<ul>
+			<li>one</li>
+			<li>two</li>
+			<li>three</li>
+			<li>four</li>
+			<li>five</li>
+			<li>six</li>
+			<li>seven</li>
+			<li>eight</li>
+			<li>nine</li>
+		</ul>
+	</div>
+	<hr color="red" />
+
+	<h2>기본 필터 : 짝수와 홀수</h2>
+	<p>:even, :odd</p>
+	<p>0부터 시작</p>
+	<p></p>
+	<input type="button" value="기본필터" id="btn3" />
+	<br />
+	<div id="result2">
+		<table>
+			<tr>
+				<th>제목1</th>
+				<th>제목2</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<hr color="red" />
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<style type="text/css">
+.ancestors * {
+	display: block;
+	border: 2px solid lightgrey;
+	color: lightgrey;
+	padding: 5px;
+	margin: 15px;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 버튼 클릭시 클릭 공통 영역의 span태그를 찾는다 
+		$('.btn').on('click',function(){
+			// vparent = $(this).parents($('.ancestors')); - 오류 : 
+			vparent = $(this).parents('.ancestors');
+			
+			// trim() : 양쪽의 공백을 없애는 메소드
+			// svalue = vparent.find('span').html().trim(); // html 속성태그가 없어서 text으로 가져와도 상관없음
+			svalue = vparent.find('span').text().trim(); 
+			
+			alert(svalue);
+		})
+	})
+</script>
+</head>
+<body>
+	<div class="ancestors"  id="result1" style="width: 500px;">
+		<div> div (great-grandparent)
+			<ul> ul (grandparent)
+				<li>li (direct parent) 
+				<span>1000</span>
+				</li>
+			</ul>
+		</div>
+		<input type="button" value="click" class="btn"/>
+	</div>
+	
+	<div class="ancestors"  id="result2" style="width: 500px;">
+		<div> div (great-grandparent)
+			<ul> ul (grandparent)
+				<li>li (direct parent) 
+				<span>2000</span>
+				</li>
+			</ul>
+		</div>
+		<input type="button" value="click" class="btn"/>
+	</div>
+	
+	<div class="ancestors"  id="result3" style="width: 500px;">
+		<div> div (great-grandparent)
+			<ul> ul (grandparent)
+				<li>li (direct parent) 
+				<span>3000</span>
+				</li>
+			</ul>
+		</div>
+		<input type="button" value="click" class="btn"/>
+	</div>
+</body>
+</html>

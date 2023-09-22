@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#btn1').on('click',function(){
+		// 각 요소들의 현 상태값을 가져온다
+		vcheck = $('#checkTest').prop('checked'); 
+		// attr()가 아닌 prop()를 통해서 가져오는 속성 : checked, selected, ...
+		
+		vsel = $('#selTest option:eq(2)').prop('selected');
+		
+		vread = $('#txtTest').prop('readonly');
+		
+		vdisab = $('#runBtn').prop('disabled');
+		
+		console.log(vcheck, vsel, vread, vdisab);
+		
+		// 버튼 클릭마다 상태값을 반대로 변경
+		$('#checkTest').prop('checked', !vcheck);
+		$('#selTest option:eq(2)').prop('selected', !vsel);
+		$('#txtTest').prop('readonly', !vread);
+		$('#runBtn').prop('disabled', !vdisab);
+		
+/* 		if(vcheck) {
+			$('#checkTest').prop('checked',false);
+		} else {
+			$('#checkTest').prop('checked',true);
+		}
+		if(vsel) {
+			$('#selTest option:eq(2)').prop('selected',false);
+		} else {
+			$('#selTest option:eq(2)').prop('selected',true);
+		} */
+	})
+	
+	$('#check').on('click',function(){
+		// #check 요소의 checked 속성상태값을 가져온다
+		vchecked = $(this).prop('checked');
+		
+		// .cb 요소의 checked 속성상태값에 vchecked 변수값으로 설정
+		$('.cb').prop('checked', vchecked);
+	})
+	
+})
+</script>
+</head>
+<body>
+	<h2></h2>
+	<input type="button" value="click" id="btn1"/>
+	<br />
+	<div id="result1">
+		<form>
+			체크박스(라디오버튼) : 
+			<input type="checkbox" id="checkTest" checked>
+			<br><br>
+			리스트박스(select객체) : 
+ 			<select id="selTest">
+				<option value="1">하나</option>
+				<option value="2">둘</option>
+				<option value="3" selected>셋</option> 
+				<option value="4">넷</option>
+			</select>
+			<br> <br> 
+			text객체 (readonly) : 
+			<input type="text" value="가나다" id="txtTest" readonly="readonly">
+			<br> <br>
+			button객체(disabled) : 
+			<input type="button" value="실행" id="runBtn" disabled="disabled">
+		</form>
+	</div>
+	<hr color=" red" />
+	
+	<h2></h2>
+	<div id="result2">
+	체크박스(전체선택/해제) : <br>
+		<input type="checkbox" id="check">전체선택
+		<input type="checkbox" class= "cb">1
+		<input type="checkbox" class= "cb">2
+		<input type="checkbox" class= "cb">3
+		<input type="checkbox" class= "cb">4
+		<input type="checkbox" class= "cb">5
+	</div>
+	<hr color=" red" />
+</body>
+</html>

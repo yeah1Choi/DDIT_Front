@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+p {
+	cursor: pointer;
+}
+
+p:hover {
+	text-decoration: underline;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+ proc1 = (hlist) => {
+	// hlist 클릭한 p 객체를 넘겨받은 매개변수 지역변수 DOM변수
+	
+    // hlist.style.display = "none";
+	
+	// DOM변수를 JQ변수로 변환 : $()
+	// $(hlist).css('display','none'); // 변수는 따옴표가 없음
+	$(hlist).hide();
+} 
+
+$(document).ready(function(){
+	// 스트립트 방식의 일괄 이벤트 처리
+	hlist = document.querySelectorAll('#result2 p');
+	
+	for(i = 0;i < hlist.length; i++) {
+		hlist[i].addEventListener('click',proc2) // for 구문 안에서 파라미터 값을 가져가 실행이 됨으로 함수를 여기에 만들 수 없음
+	} 
+	
+	// 제이쿼리 방식의 이벤트 등록
+	//  #result3 p 검색
+	$('#result3 p').on('click',function() {
+		//$(this).hide();
+		$(this).css('display','none');
+		//this.style.display = "none";
+	})
+})
+
+// 이벤트 리스너에 갖다쓸 함수
+function proc2() {
+	this.style.display = "none";
+}
+
+</script>
+</head>
+<body>
+	<h3>script방식의 onclick 이벤트 "proc1(this)"</h3>
+	<div id="result1">
+		<p onclick="proc1(this)">1. 클릭시 사라집니다</p>
+		<p onclick="proc1(this)">2. 클릭시 사라집니다</p>
+		<p onclick="proc1(this)">3. 클릭시 사라집니다</p>
+		<p onclick="proc1(this)">4. 클릭시 사라집니다</p>
+		<p onclick="proc1(this)">5. 클릭시 사라집니다</p>
+		<p onclick="proc1(this)">6. 클릭시 사라집니다</p>
+		<p onclick="proc1(this)">7. 클릭시 사라집니다</p>
+		<p onclick="proc1(this)">8. 클릭시 사라집니다</p>
+		<p onclick="proc1(this)">9. 클릭시 사라집니다</p>
+		<p onclick="proc1(this)">10. 클릭시 사라집니다</p>
+	</div>
+	<hr color="red" />
+
+	<h3>script방식의 일괄이벤트 처리</h3>
+	<div id="result2">
+		<p>1. 클릭시 사라집니다</p>
+		<p>2. 클릭시 사라집니다</p>
+		<p>3. 클릭시 사라집니다</p>
+		<p>4. 클릭시 사라집니다</p>
+		<p>5. 클릭시 사라집니다</p>
+		<p>6. 클릭시 사라집니다</p>
+		<p>7. 클릭시 사라집니다</p>
+		<p>8. 클릭시 사라집니다</p>
+		<p>9. 클릭시 사라집니다</p>
+		<p>10. 클릭시 사라집니다</p>
+	</div>
+	<hr color="red" />
+
+	<h3>script방식의 일괄이벤트 처리</h3>
+	<div id="result3">
+		<p>1. 클릭시 사라집니다</p>
+		<p>2. 클릭시 사라집니다</p>
+		<p>3. 클릭시 사라집니다</p>
+		<p>4. 클릭시 사라집니다</p>
+		<p>5. 클릭시 사라집니다</p>
+		<p>6. 클릭시 사라집니다</p>
+		<p>7. 클릭시 사라집니다</p>
+		<p>8. 클릭시 사라집니다</p>
+		<p>9. 클릭시 사라집니다</p>
+		<p>10. 클릭시 사라집니다</p>
+	</div>
+	<hr color="red" />
+</body>
+</html>

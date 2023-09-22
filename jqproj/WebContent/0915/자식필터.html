@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<style type="text/css">
+table {
+	border: 1px solid #016A70;
+	margin: 10px
+}
+
+td {
+	border: 1px solid #016A70;
+	width: 200px;
+	height: 30px;
+	text-align: center;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+th {
+	border: 1px solid #016A70;
+	height: 50px;
+	font-size: 2.0rem;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#btn1').on('click', function() {
+
+			//$('#result1 tr:nth-child(2n+1)') = 
+			$('#result1 tr:nth-child(odd)').css('background', '#D2DE32');
+			// odd() 홀수 선택(0부터 시작한다)  / :nth-child(odd) 1부터 시작한다
+			
+			//$('#result1 tr:first').css('background','skyblue'); // 딱 첫번째 하나만 선텍
+			$('#result1 tr:first-child').css('background', '#A2C579'); // 첫번째 자식 선택임으로 두 테이블의 첫째자식을 선택
+
+			$('#result1 tr:nth-child(even)').css('background', '#FFFFDD');
+			//$('#result1 tr:even').css('background', '#FFFFDD');
+			// => even() 짝수만 선택 : 0부터 시작하기 때문에 첫번째 세번째 칸에 적용이 되었음
+		})
+
+		$('#btn2').on('click', function() {
+			$('#result2 tr:first').css({
+				'background' : '#22668D',
+				'color' : '#FFFADD'
+			});
+
+			$('#result2 td:first-child').css('background', '#8ECDDD');
+
+			$('#result2 td:nth-child(2)').css('background', '#FFCC70');
+
+			$('#result2 td:last-child').css('background', '#FFFADD');
+		})
+	})
+</script>
+</head>
+<body>
+	<h2></h2>
+	<p>:first => 전체 중에서 첫번째 요소 , 선택되는 요소는 반드시 하나</p>
+	<p>:first-child => 부모에 속한 자식 중 첫번째 자식요소와 일치</p>
+	<p>:nth-child(even), :nth-child(odd) => 짝수, 홀수 번째의 요소들과 일치 (1부터 시작)</p>
+	<p></p>
+	<input type="button" value="기본필터" id="btn1" />
+	<br />
+	<div id="result1">
+		<table>
+			<tr>
+				<th>제목1</th>
+				<th>제목2</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<th>제목1</th>
+				<th>제목2</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<hr color="red" />
+
+	<h2></h2>
+	<p></p>
+	<input type="button" value="기본필터" id="btn2" />
+	<br />
+	<div id="result2">
+		<table>
+			<tr>
+				<th>제목1</th>
+				<th>제목2</th>
+				<th>제목3</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<hr color="red" />
+</body>
+</html>

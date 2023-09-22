@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>컨텍스트</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+form {
+	border: 3px solid gold;
+	margin: 20px;
+	padding: 20px;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+	// window.onload = function(){}
+	// $(function() {})
+	 $(document).ready(function(){
+			// 확인버튼 클릭시
+			$('#btn1').on('click', function() {
+				//p태그를 선택
+				$('p').css('background', 'pink');
+				
+				// 0번째 form 내부의 p태그를 선택
+				$('p',document.forms[0]).css('background','yellow');
+			})
+
+			// div 클릭시
+			$('div.result1').on('click', function() {
+				//p태그를 선택
+				$('p',this).css('font-size', '+=5px'); // this가 컨텍스트, this 범위 안에 있는 p태그를 선택
+			})
+	 })
+</script>
+</head>
+<body>
+	<h3></h3>
+	<input type="button" value="확인" id="btn1" />
+	<br />
+	<p>hello world</p>
+	<div class="result1">
+		<p>hello world</p>
+	</div>
+	<div class="result1">
+		<p>hello world</p>
+	</div>
+	<div class="result1">
+		<p>hello world</p>
+	</div>
+	<div class="result1">
+		<p>hello world</p>
+	</div>
+	<form action="">
+	<p>hello world</p>
+	</form>
+	<form action="">
+		<p>hello world</p>
+	</form>
+	<form action="">
+		<p>hello world</p>
+	</form>
+	<hr color="red" />
+</body>
+</html>

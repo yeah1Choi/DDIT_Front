@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(() => {
+	$('#btn1').on('click',() => {
+		
+		vhid = "** hidden 결과 ** <br>"
+		
+		$('#testForm *:hidden').each(function(){
+			//alert(this.tagName);
+			if(this.tagName == "INPUT"){
+				vattr = $(this).attr('name');
+				vvalue = $(this).val();
+				
+				vhid += `${this.tagName} : [ ${vattr} : ${vvalue} ]<br>`;
+			} else {
+				vtext = $(this).text();
+				vhid += `${this.tagName} : [ ${vtext} ]<br>`;
+			}
+		})
+		$('#hidden').html(vhid);
+	})
+	
+	$('#btn2').on('click',() => {
+		vvis = "** visible 결과 ** <br>"
+		
+		$('#testForm *:visible').each(function(i,v){
+/*			if(this.tagName == "INPUT"){
+				vtype = $(this).attr('type');
+				
+				if(vtype == "radio") {
+					// checked 속성의 상태 값을 가져온다 - 참 거짓으로 판단: prop()
+					//*prop() : 속성 메소드는 attr()과 prop()가 있는데 attr은 속성값을 반환, prop는 속성상태값에 따라 참거짓을 반환
+					if($(this).prop('checked')){
+						// checked 상태
+						vattr = $(this).attr('name');
+						vvalue = $(this).val();
+					} 
+				} else {
+					// input type = text
+					vattr = $(this).attr('name');
+					vvalue = $(this).val();
+				}
+				
+				vvis += `${this.tagName} : [ ${vattr} : ${vvalue} ]<br>`;
+				
+			} else if(this.tagName != "BR") {
+				//vtext = $(this).html(); // html속성이 가진 것까지 출력을 한다
+				vtext = $(this).text();
+				vvis += `${this.tagName} : [ ${vtext} ]<br>`;
+			}
+		
+*/
+			// v = #testForm *:visible[i]
+			
+			vtype = $(this).attr('type');
+			
+			if(v.tagName == "INPUT" && vtype == 'radio' && $(this).prop('checked') 
+					|| v.tagName == 'INPUT' && vtype == 'text') {
+				vattr = $(this).attr('name');
+				vvalue = $(this).val();
+				
+				vvis += `${this.tagName} : [ ${vattr} : ${vvalue} ]<br>`;
+			} else if(v.tagName != "BR" && vtype != 'radio' && vtype != 'text') {
+				
+				vtext = $(this).html();
+				vvis += `${this.tagName} : [ ${vtext} ]<br>`;
+			}
+		})
+		
+		$('#visible').html(vvis);
+	})
+})
+</script>
+</head>
+<body>
+	<h2></h2>
+	<input type="button" value="hidden" id="btn1" />
+	<input type="button" value="visible" id="btn2" />
+	<br />
+	<div id="result1">
+		<form id="testForm">
+			<input type="hidden" name="userAge" value="33"> <input
+				type="hidden" name="userCity" value="대전"> I D : <input
+				type="text" name="userID" value="hong"> <span
+				style="display: none">ID가 중복됩니다.</span> <br> 이름 : <input
+				type="text" name="userName" value="홍길동"> <span
+				style="visibility: hidden">이름을 입력하세요</span><br>
+			<p style="visibility: hidden">
+				<b>안보이지만</b> <em>영역</em>이 있는 속성
+			</p>
+			성별 : <input type="radio" name="gender" value="남" checked>남자 <input
+				type="radio" name="gender" value="여">여자
+		</form>
+	</div>
+	<div id="hidden"></div>
+	<div id="visible"></div>
+	<hr color="red" />
+</body>
+</html>

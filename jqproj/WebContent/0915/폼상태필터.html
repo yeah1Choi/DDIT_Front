@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#btn1').on('click',function(){
+		// 사용가능한 요소를 선택해서 배경색을 변경
+		$('form *:enabled').css('background','pink');
+		
+		// 사용불가능한 요소 선택 후 테두리 변경
+		$('form *:disabled').css('border','3px double hotpink');
+		
+		$('select option').css('background','#FBEEAC');
+	})
+	
+	$('#btn2').on('click',function(){
+		//1// $('#result2 > form > input')
+		//2// $('#result2 input')
+		//3// $('#result2 input[type=checkbox]')
+		//4// $('#result2 input:checkbox')
+		//$('#result2 :checkbox')
+		
+		str = "";
+		str2 = [];
+		$('#result2 :checkbox:checked').each(function(x,y){ 
+			// x:인덱스, y:파라미터 => y = #result2 :checkbox:checked[x]
+			// y = #result2 :checkbox:checked[x] 없이 this로도 사용가능
+			str += $(this).val() + "&nbsp;&nbsp;&nbsp;" // this는 DOM변수, $() 함수 씌우기
+			str2.push($(this).val());
+		})
+		
+		// 브라우저 출력하기
+		$('#result2 div').html(str); // <= document.querySelector('#result2 div').innerHTML = str;
+	})
+	
+	// 스트립트 형식으로 쓰기
+//	vbtn3 = document.querySelector('#btn3');
+//	vbtn3.addEventListener('click',function(){})
+	// 쿼리 형식으로 쓰기
+	$('#btn3').on('click',function(){
+		str = "";
+		
+		$('#spring option:selected').each(function() {
+			str += $(this).val() + "<br>";
+		})
+		
+		$('#result3 div').html(str);
+	})
+})
+</script>
+</head>
+<body>
+	<h2>폼상태필터</h2>
+	<p>:disabled => 사용 불가능, 서버로 전송불가능</p>
+	<p>:enabled => 사용가능, 기본값, 속성에 설정안됨, enabled 선택하면 disabled상태의 요소는 빠짐</p>
+	<p>:selected => select-option 태그의 초기값 설정</p>
+	<p>:checked</p>
+	<input type="button" value="확인" id="btn1" />
+	<br />
+	<div id="result1">
+		<form action="폼상태.jsp" method="post">
+			<input type="text" name="id" value="korea" disabled> <!-- value값이 있어도 전송시 값이 없는 null상태임 -->
+			<br> 
+			<input type="password" name="pass">
+			<br> 
+			<input type="hidden" name="age" value="20">
+			<br> 
+			<select name="disSelect" >
+				<option>Option1</option>
+				<option>Option2</option>
+				<option selected="selected">Option3</option>
+				<option>Option4</option>
+			</select> 
+			<br>
+			<textarea name="enTextarea" rows=10 cols=20>text</textarea>
+			<br> 
+			<input type="button" value="클릭" onclick="alert('hello!!')">  <!-- disabled값을 넘겨줄수없음 -->
+			<br>
+			<input type="submit" value="전송" >
+		</form>
+	</div>
+	<hr color="red" />
+	
+	<h2>:checkbox:checked</h2>
+	<p></p>
+	<input type="button" value="확인" id="btn2" />
+	<br />
+	<div id="result2">
+		<form id="ff">
+			<p> 취 미 : </p>
+			<input type="checkbox" name="hobby" value="여행" checked >여행
+			<input type="checkbox" name="hobby" value="보드게임">보드게임
+			<input type="checkbox" name="hobby" value="운동">운동
+			<input type="checkbox" name="hobby" value="독서" >독서
+			<input type="checkbox" name="hobby" value="낚시">낚시
+			<input type="checkbox" name="hobby" value="게임">게임
+			<input type="checkbox" name="hobby" value="노래" checked >노래
+			<input type="checkbox" name="hobby" value="춤">춤
+			<input type="checkbox" name="hobby" value="요리">요리
+			<input type="checkbox" name="hobby" value="영화" checked >영화
+			<br><br>
+		</form>
+		<div></div>
+	</div>
+	<hr color="red" />
+	
+	<h2>option:selected</h2>
+	<p></p>
+	<input type="button" value="확인" id="btn3" />
+	<br />
+	<div id="result3">
+		<form>
+			<p> 봄소식 : </p>
+			<select name="spring" id="spring" multiple size="6">
+			<!-- multiple // 여러개 선택가능(ctrl 누르고),size="6" // 한번에 옵션을 볼 수 있는 범위 선정 --> 
+				<option>개나리</option>
+				<option selected>진달래</option>
+				<option>민들레</option>
+				<option selected>벚꽃</option>
+				<option>목련</option>
+				<option>철쭉</option>
+			</select>
+		</form>
+		<div></div>
+	</div>
+	<hr color="red" />
+</body>
+</html>

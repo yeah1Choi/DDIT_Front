@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+p {
+	border: 1px solid blue;
+	padding: 10px;
+	margin: 10px;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(function() {
+//	$('p').click(function(){}) => 2번째 방법
+//	$('p').bind('click',function(){}) => 3번째 방법
+	
+	$('p').on('click',function(){
+		vparent = $(this).parent();
+		
+		if($(vparent).is('div')) {
+			// 글자색을 빨강으로 변경 -> p태그의 부모에 복사
+			$(this).clone().appendTo(vparent).css('color','red'); // appendTo(복사될곳)
+			//clone() : 복사본에 이벤트까지 복사되지 않음
+			//clone(true) : 복사본에 이벤트까지 복사됨
+		} else {
+			alert("작업대상이 아닙니다.");
+		}
+	})
+})
+</script>
+</head>
+<body>
+	<h2></h2>
+	
+	<div id="result1">
+	<p>무궁화 꽃이 피었습니다</p>
+	</div>
+	
+	<p>무궁화 삼천리 화려강산</p>
+	
+	<div id="result2">
+	<p>사랑은 늘 도망가</p>
+	</div>
+	
+	<hr color="red" />
+</body>
+</html>

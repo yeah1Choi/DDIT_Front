@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#btn2').on('click',() => {
+			$('#p2 + p').css('background','hotpink');
+		})
+		
+		$('#btn3').on('click',() => {
+			$('#p2 ~ p').css('color','green');
+		})
+	})
+</script>
+</head>
+<body>
+	<h2>HTML 메소드 : body</h2>
+	<input type="button" value="click" onclick="proc1()" />
+	<br />
+	<div id="result1">
+		<p>#result1의 자식, 후손</p> <!-- $('#result > p') : 모든 자식 p태그 -->
+		<p>#result1의 자식, 후손</p>
+		<div>
+			<p>#result1의 후손</p> <!-- $('#result p') : 모든 후손 p태그 -->
+		</div>
+	</div>
+	<hr color="red" />
+
+	<h2>형제선택</h2>
+	<p>+ : 바로 다음에 나오는 첫번째 형제</p>
+	<p>~ : 다음에 나오는 모든 형제</p>	
+	<input type="button" value="+선택" id="btn2"/>
+	<input type="button" value="~선택" id="btn3"/>
+	<br />
+	<div id="result2">
+		<p id="p1">1</p>
+		<p id="p2">2</p>
+		<p id="p3">3</p>
+		<p id="p4">4</p>
+		<div>
+			<p>4-2</p>
+		</div>
+		<p id="p5">5</p>
+		<p id="p6">6</p>
+	</div>
+	<hr color="red" />
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	// delegate()
+	// $(document).on('click','.add',function(){})
+	
+	// bind()
+	/* $('.add').on('click', function() {
+		// vbtn = $('<input type = "button" value = "추가버튼" class = "add">');
+		vbtn = $('<input>', {
+			'type' : 'button',
+			'value' : '추가버튼',
+			'class' : 'add btn'
+		}); 
+		$('#result1').append(vbtn);
+	}) */
+	$('.add').bind('click', function() {
+		// vbtn = $('<input type = "button" value = "추가버튼" class = "add">');
+		vbtn = $('<input>', {
+			'type' : 'button',
+			'value' : '추가버튼',
+			'class' : 'add btn'
+		}); 
+		$('#result1').append(vbtn);
+	})
+	
+	/* $('#clear').on('click',function(){
+		$('.add').off('click'); // off() - 이벤트 정지 메소드
+	}) */
+	$('#clear').bind('click',function(){
+		$('.add').unbind('click'); 
+	})
+	
+	// 새로 만들어진 버튼 - 이벤트 메소드 실행이 안됨 : bind는 기존 요소에만 적용됨!
+	$('.btn').bind('click',function(){
+		cr = Math.floor(Math.random()*256);
+		cg = Math.floor(Math.random()*256);
+		cb = Math.floor(Math.random()*256);
+		
+		//$('#result2').css('background', 'rgb('+cr+','+cg+','+cb+')');
+		//$('#result2').css('background', `rgb(${cr},${cg},${cb})`);
+		
+		cr2 = cr.toString(16);
+		cg2 = cg.toString(16);
+		cb2 = cb.toString(16);
+		
+		$('#result2').css('background', '#'+cr2+cg2+cb2);
+	})
+})
+</script>
+</head>
+<body>
+	<h2></h2>
+	<input type="button" value="추가" class="add" />
+	<input type="button" value="해제" id="clear" />
+	<br />
+	<div id="result1"></div>
+	<div id="result2"></div>
+	<hr color="red" />
+</body>
+</html>

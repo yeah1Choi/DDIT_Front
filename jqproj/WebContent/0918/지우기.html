@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<style type="text/css">
+#result1 {
+	background: pink;
+}
+
+#result2 {
+	background: yellow;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#empty').on('click', function() {
+			$('#result1').empty();
+		})
+
+		$('#remove').on('click', function() {
+			$('#result2').remove();
+		})
+	})
+</script>
+</head>
+<body>
+	<h2></h2>
+	<input type="button" value="empty" id="empty" />
+	<input type="button" value="remove" id="remove" />
+	<br />
+	<p>result1 : empty</p>
+	<div id="result1">
+		<p>무궁화 꽃이 피었습니다</p>
+	</div>
+	<p>result2 : remove</p>
+	<div id="result2">
+		<p>무궁화 꽃이 피었습니다</p>
+	</div>
+	<hr color="red" />
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<style type="text/css">
+p {
+	font-size: 1.5 rem;
+	color: navy;
+}
+</style>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+/*
+proc1 = () => {
+//	alert($('body').html()); // body 태그 안의 모든 태그를 포함한 문장
+//	alert($('body').text()); // body 태그안의 모든 문자만
+}
+
+proc2 = () => {
+//	alert($('p').html()); // p태그 중 첫번째만 가져와 태그를 포함한 문장을 출력
+//	alert($('p').text()); // 모든 p태그의 문자만 출력
+}
+*/
+$(document).ready(()=> {
+	$('#bhtml').on('click',() => {
+		alert($('#result2 p').html());
+	})
+	
+	$('#btext').on('click',() => {
+		alert($('#result2 p').text());
+	})
+	
+	$('#bhfor').on('click',function(){
+		str = "";
+		$('#result3 p').each(function(i, v){ // 현재 파라미터 생략가능 
+		// $('#result3 p')[i].each(function(i, v) 인덱스를 부여하면 호출된 함수의 첫번째 파라미터는 무조건 인덱스값을 가짐
+			str += $(this).html() + "\n"; // this를 쓸 때는 람다함수 쓰면 안됨 - function자체가 this가 되기 때문에
+		})
+		alert(str);
+	})
+})
+</script>
+</head>
+<body>
+	<h2>HTML 메소드 : body</h2>
+	<input type="button" value="click" id="btn1" onclick="proc1()" />
+	<br />
+	<div id="result1"></div>
+	<hr color="red" />
+
+	<h2>HTML 메소드 : 특정태그</h2>
+	<input type="button" value="html" id="bhtml" onclick="proc2()" />
+	<input type="button" value="text" id="btext" onclick="proc2()" />
+	<br />
+	<div id="result2">
+		<p>1. <span>홍길동</span></p>
+		<p>2. <span>개나리</span></p>
+		<p>3. <span>진달래</span></p>
+	</div>
+	<hr color="red" />
+
+	<h2>HTML 메소드 : 반복문 </h2>
+	<p>검색된 DOM요소의 개수만큼 지정된 함수 호출</p>
+	<input type="button" value="반복문" id="bhfor"/>
+	<br />
+	<div id="result3">
+		<p>1. <span>홍길동</span></p>
+		<p>2. <span>개나리</span></p>
+		<p>3. <span>진달래</span></p>
+	</div>
+	<hr color="red" />
+</body>
+</html>
