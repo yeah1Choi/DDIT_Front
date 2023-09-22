@@ -1,0 +1,83 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0 auto;
+}
+body {
+  font-family: "Gowun Dodum", sans-serif;
+  padding-top: 50px;
+}
+a,
+p,
+li,
+input {
+  text-decoration: none;
+  color: #0b2447;
+  font-family: "Gowun Dodum", sans-serif;
+  font-size: 16px;
+  word-break: keep-all;
+}
+ul {
+  list-style: none;
+}
+.container {
+  width: 70%;
+  height: 550px;
+  display: flex;
+}
+.box {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 33%;
+  height: 90%;
+  margin-right: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+}
+.nm {
+  margin-right: none;
+}
+.pic {
+  width: 80%;
+  height: 35%;
+}
+.pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.title {
+  color: #19376d;
+  font-weight: bold;
+}
+input[type="button"] {
+  border: none;
+  font-size: small;
+  color: #fff;
+  border: 1px solid #19376d;
+  background: #19376d;
+  padding: 2px 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+input[type="button"]:hover {
+  border: 1px solid #19376d;
+  color: #19376d;
+  background-color: #fff;
+}
+ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+.inflex {
+  width: 90%;
+}
+.title,
+.price {
+  text-align: center;
+  margin-bottom: 10px;
+}

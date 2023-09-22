@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+form {
+	border: 5px solid pink;
+	margin: 20px;
+	padding: 20px;
+}
+</style>
+<script>
+function colorChange() {
+	// html요소검색 접근
+	let a = document.getElementById('color'); /* 스크립트에 ; 안써도 오류안남 */
+	/* let a = document.querySelector('#color'); */
+	/* let 변수타입은 중복사용이 안됨 - 컴파일시 에러 */
+	
+	var res = a.value;
+	
+	console.log(res);
+	
+	// form 배경색을 변경 - 사용자가 선택할때마다 : 동적
+	/* 
+	// id를 이용한 선택 방법
+	var b = document.getElementById('ff');   
+	var b = document.querySelector('#ff'); 
+	
+	var b = document.querySelector('form');       // form 내부의 첫번째 요소를 선택
+	var b = document.querySelectorAll('form');    // form 내부의 모든 요소를 선택
+	*/
+	
+	// form 자체를 선택
+	var b = document.forms[0]; // forms : 이미 저장된 내장 객체
+	
+	b.style.background = res;
+}
+</script>
+</head>
+<body>
+	<form action="newinput.jsp" method="post" id="ff">
+		<input type="text" name="id" placeholder="id 입력" size="50"> 
+		<br>
+		<input type="text" name="name" placeholder="name 입력"> 
+		<br>
+		<input type="email" name="email" placeholder="email 입력"> 
+		<br>
+		<input type="tel" name="tel" placeholder="tel 입력"> <!-- 숫자가 아닌 문자도 입력이 가능해 효용성있지않음 -->
+		<br>
+		<input type="range" min="0" max="100" value="10" step="10" name="score" placeholder="score 입력"> 
+		<br>
+		<input type="color" name="color" id="color" > <!-- input color 타입 : 사용자 사용을 위함에 더 가깝 -->
+		<input type="button" value="색변경" onclick="colorChange()">
+		<br>
+		<input type="submit"> 
+		<br>
+	</form>
+</body>
+</html>

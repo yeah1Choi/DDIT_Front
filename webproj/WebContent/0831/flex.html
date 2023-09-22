@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* body {
+	min-width: 900px;
+} */
+#main {
+	display: flex;
+	flex-direction: row;
+}
+
+#container {
+	display: flex;
+	flex-direction: column;
+}
+
+#container *:not(#main) {
+	border: 2px solid #ccc;
+	border-radius: 20px;
+	box-sizing: border-box;
+	margin: 2px;
+	padding: 5px;
+	box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+header {
+	width: 100%;
+	height: 100px;
+	background: #FBA1B7;
+}
+
+footer {
+	width: 100%;
+	height: 100px;
+	background: #FFDBAA;
+}
+
+nav {
+	width: 100%;
+	height: 50px;
+	background: #FFDBAA;
+}
+
+aside {
+	flex: 20%;
+	height: 500px;
+	background: #F3FDE8;
+}
+
+section {
+	background: #FFF0F5;
+	flex: 60%;
+	height: 500px;
+}
+
+aside ul li {
+	list-style-image: url("../images/heart.png");
+	font-weight: bold;
+}
+
+aside ul li a {
+	color: yellow;
+}
+
+aside ul li a:hover {
+	color: white;
+}
+
+@media ( max-width : 500px ) {
+	#main {
+		flex: 100%;
+		flex-direction: column;
+		height: auto;
+	}
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		<header></header>
+		<nav></nav>
+		<div id="main">
+			<aside id="as1"></aside>
+			<section></section>
+			<aside id="as2"></aside>
+		</div>
+		<footer></footer>
+	</div>
+</body>
+</html>

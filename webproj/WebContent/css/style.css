@@ -1,0 +1,31 @@
+pre {
+	background : #F3FDE8;
+	margin : 20px auto;
+	font-size : 16px;
+	
+	border : 3px solid lightblue;
+	border-left : none;
+	border-right : none;
+	
+	padding : 15px;
+}
+div {
+	border: 2px dotted orange;
+	margin: 20px;
+	padding: 10px;
+	height: auto;
+}
+input[type=button], button[type=button] {
+	border: 1px solid #fff;
+	background: #f00;
+	color: #fff;
+	padding: 5px 10px;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+input[type=button]:hover, button[type=button]:hover {
+	border: 1px solid #f00;
+	background: #fff;
+	color: #f00;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>서브창</title>
+<link rel="stylesheet" href="../css/style.css">
+<script type="text/javascript">
+var proc1 =()=> {
+	input = prompt("입력하세요");
+	
+	openner.document.getElementById('result2').innerHTML = input;
+	
+	window.close();
+}
+</script>
+</head>
+<body>
+	<h1></h1>
+	<p></p>
+	<input type="button" value="click" onclick="proc1()">
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+</body>
+</html>

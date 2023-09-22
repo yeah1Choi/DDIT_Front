@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+div {
+	border: 1px dotted green;
+	margin: 20px;
+	padding: 20px;
+	width: 200px;
+	height: auto;
+}
+</style>
+
+<script>
+	window.onload = function() {
+		// 입력
+		var vinput = window.prompt("이름을 입력하세요", "홍길동");
+
+		// id = result 요소 검색
+		var vres = document.getElementById('result');
+
+		vres.innerHTML = "이름 : " + vinput + "<br>";
+	}
+
+	function addCalc() {
+		// 입력
+		let num1 = parseInt(prompt("첫번째 숫자를 입력하세요", "정수로 입력"));
+		let num2 = parseInt(prompt("두번째 숫자를 입력하세요", "정수로 입력"));
+		// 계산
+		let sum = num1 + num2;
+		// 출력
+		// id = "result2"를 출력
+		let str = num1 + " + " + num2 + " = " + sum + "<br>";
+		str = `${num1} + ${num2} = ${sum}<br>`;
+		// 백틱을 이용한 출력 - 띄어쓰기도 알아서 드감
+		document.getElementById('result2').innerHTML = str;
+	}
+
+	function calc() {
+	// id = first id = second 요소 검색 후 값 가져오기
+	var vfirst = parseInt(document.getElementById('first').value);
+	var vsecond = parseInt(document.getElementById('second').value);
+
+	// 계산
+	var vres = vfirst + vsecond;
+	
+	// 출력 내용 만들기
+	str = `${vfirst} + ${vsecond} = ${vres}`
+	
+	// 출력 요소 검색
+	document.getElementById('result3').innerHTML = str;	
+	document.getElementById('result4').value = str;	
+
+	// 출력
+	}
+</script>
+</head>
+<body>
+	<p>prompt를 이용해 입력 후 출력</p>
+	<div id="result"></div>
+	<hr color="green">
+	<br>
+	<p>prompt를 이용해 수를 입력하고 덧셈하기</p>
+	<input type="button" value="click" onclick="addCalc()">
+	<div id="result2"></div>
+	<hr color="green">
+	<br>
+	<p>input text를 이용해 수를 입력하고 덧셈하기</p>
+	<input type="button" value="click" onclick="calc()">
+	<br>
+	<label>첫번째 수 :</label>
+	<input type="text" id="first">
+	<br>
+	<label>두번째 수 :</label>
+	<input type="text" id="second">
+	<br>
+	<label>결과 :</label>
+	<div id="result3"></div>
+	<label>결과 :</label>
+	<input type="text" id="result4">
+	<br>
+</body>
+</html>

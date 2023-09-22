@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script>
+	// p태그를 검색
+
+	window.onload = function() { // body태그의  html을 먼저 읽게 하는 함수
+
+		var vp = document.querySelector('p');
+		vp.style.color = "red";
+		vp.style.fontSize = "50px";
+
+		var vp = document.querySelectorAll('p');
+		for (let i = 0; i < vp.length; i++) {
+			vp[i].style.color = "blue";
+		}
+		// document.write("Hello!"); 
+		// document.write : 윈도우의 요소들 모두 없앰 - 이미 로드된 문서의 내용을 변경하는데 사용
+	}
+</script>
+</head>
+<body>
+	<pre>
+script가 head태그 안에 있을때
+html요소를 검색할 수 없다
+검색하기 위해 
+window.onload = function(){} 내에 스크립트를 작성한다
+
+document.write()를 이용하여 출력하면
+윈도우의 요소를 모두 없앤 후 출력한다
+	</pre>
+	<p>hello</p>
+	<p>안녕</p>
+</body>
+</html>

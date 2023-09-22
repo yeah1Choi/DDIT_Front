@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//오늘의 날짜 생성 출력
+	var today = new Date(); // 스크립트에서 전역변수
+	document.write(today);
+
+	function datePrint() {
+		// div를 검색해서 출력
+		let printdiv = document.getElementsByTagName('div');
+
+		//printdiv[0].innerText = today;
+
+		//		printdiv[0].innerText = today.toLocaleDateString(); // 한국형식의 날짜출력
+		//		printdiv[0].innerText = today.toLocaleTimeString(); // 한국형식의 시간출력
+		//		printdiv[0].innerText = today.toLocaleString(); // // 한국형식의 날짜+시간출력
+
+		let str = today.toLocaleString() + "<br>";
+		str += today.toLocaleDateString() + "<br>";
+
+		//		printdiv[0].innerText = str; // <br>을 태그로 인식이 아니라 text로 인식
+		printdiv[0].innerHTML = str;
+	}
+</script>
+<style type="text/css">
+div {
+	border: 2px solid blue;
+	height: 50px;
+	margin: 20px;
+	padding: 20px;
+}
+</style>
+</head>
+<body>
+	<br>
+	<input type="button" value="click" onclick="datePrint()">
+	<!-- 스크립트 모두 출력 후 출력했기때문에 document.write메소드에 의해 사라지지않음 -->
+	<br>
+	<input type="button" value="inline-script" onclick="alert('Hola')">
+	<br>
+	<div></div>
+</body>
+</html>

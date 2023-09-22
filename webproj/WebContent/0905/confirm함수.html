@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	border: 2px dotted orange;
+	margin: 20px;
+	padding: 10px;
+	height: auto;
+}
+</style>
+<script type="text/javascript">
+var proc1 = () => {
+	
+		str = "";
+		
+	while(true) {
+		// 입력
+		su = window.prompt("입력하세요");
+		
+		str += `<h3>*** ${su}단 ***</h3>`;
+		
+		// 처리 출력 모양 만들기
+		for(i=1;i<10;i++) {
+			str += `${su} * ${i} = ${su*i} <br>`
+		}
+		
+		// 출력
+		window.document.getElementById('result1').innerHTML = str;
+		
+		// 여부 묻기 -> confirm() : 입력값에 따라 true/false 반환
+		// false인지 비교해서 break
+		anwser = window.confirm("입력을 더 하시겠습니까?");
+		
+		//if(anwser == false) break; = 
+		if(!anwser) break;
+	}
+	// 출력 (가능)
+}
+</script>
+</head>
+<body>
+	<h2></h2>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+</body>
+</html>

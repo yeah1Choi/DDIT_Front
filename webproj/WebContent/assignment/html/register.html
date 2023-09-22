@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+      rel="stylesheet"
+    />
+    <title>Register</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0 auto;
+      }
+      body {
+        font-family: "Gowun Dodum", sans-serif;
+      }
+      a,
+      p,
+      li,
+      input,button {
+        text-decoration: none;
+        color: #0b2447;
+        font-family: "Gowun Dodum", sans-serif;
+        font-size: 16px;
+        word-break: keep-all;
+      }
+      ul {
+        list-style: none;
+      }
+      #pageTitle {
+        text-align: center;
+        margin: 40px auto;
+      }
+      .container {
+        width: 100%;
+      }
+      fieldset {
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        padding: 30px;
+        width: 60%;
+        height: auto;
+        box-sizing: border-box;
+      }
+      fieldset legend {
+        font-size: 20px;
+      }
+      label {
+        display: inline-block;
+        width: 130px;
+      }
+      form {
+        width: 65%;
+        margin: 0 auto;
+      }
+      input {
+        margin-bottom: 10px;
+      }
+      button {
+        margin: 0 15px;
+      }
+      .ht {
+        width: 200px;
+      }
+      input[type="submit"] {
+        margin-top: 10px;
+      }
+      input[type="radio"] {
+        margin: 0 10px;
+      }
+      button.btn {
+        margin-right: 0;
+      }
+      .btn {
+        border: none;
+        font-size: small;
+        color: #fff;
+        border: 1px solid #19376d;
+        background: #19376d;
+        padding: 2px 12px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .btn:hover {
+        border: 1px solid #19376d;
+        color: #19376d;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="pageTitle">회원가입 페이지</h1>
+      <fieldset>
+        <legend>회원정보입력</legend>
+        <form action="" method="post">
+          <label for="id">아이디</label>
+          <input class="ht" type="text" name="id" />
+          <button class="btn">중복검사</button> <br />
+
+          <label for="pass">패스워드</label>
+          <input class="ht" type="password" name="pass" /><br />
+
+          <label for="passCheck">패스워드 확인</label>
+          <input class="ht" type="password" name="passCheck" /><br />
+
+          <label for="name">이름</label>
+          <input
+            class="ht"
+            type="text"
+            name="name"
+            placeholder="홍길동"
+          /><br />
+
+          <label for="tel">휴대폰번호</label>
+          <input
+            class="ht"
+            type="text"
+            name="tel"
+            placeholder="010-1234-5678"
+          /><br />
+
+          <label for="mail">이메일</label>
+          <input
+            class="ht"
+            type="text"
+            name="mail"
+            placeholder="abc123@abc.com"
+          /><br />
+
+          <label for="birth">생일</label>
+          <input class="ht" type="date" name="birth" /><br />
+
+          <label for="homepage">홈페이지</label>
+          <input
+            class="ht"
+            type="text"
+            name="homepage"
+            placeholder="http://google.com"
+          /><br />
+
+          <label for="gender">성별</label>
+          <input type="radio" name="gender" value="male" />남자
+          <input type="radio" name="gender" value="female" />여자<br /><br />
+
+          <input class="btn" type="submit" value="제출" />
+          <input class="btn" type="reset" value="초기화" />
+        </form>
+      </fieldset>
+    </div>
+  </body>
+</html>

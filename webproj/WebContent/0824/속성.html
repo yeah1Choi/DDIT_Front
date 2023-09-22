@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성</title>
+
+<style>
+pre {
+	font-size: 1.5em;
+	background: #5091db;
+	margin: 50px;
+	border-top-width: 5px;
+	border-top-color: #191D88;
+	border-top-style: solid;
+	border-bottom-width: 8px;
+	border-bottom-color: #1450A3;
+	border-bottom-style: double;
+	border-left: 6px dotted #337CCF;
+	border: 20px outset #337CCF;
+	border-left: none;
+	padding-top: 20px;
+	padding-left: 100px;
+}
+
+a {
+	font-size: 1.6em;
+	margin: 20px;
+	/* border : 2px solid blue; */
+	padding: 20px;
+}
+
+hr {
+	clear : both;
+}
+
+#google img {
+	box-sizing: border-box;
+	width: 500px;
+}
+a:link {
+	color: red;
+	/* text-decoration: line-through; */
+}
+
+a:visited {
+	color: green;
+}
+
+a:hover {
+	text-decoration: none;
+	color: blue;
+}
+
+a:active {
+	font-style: italic;
+}
+</style>
+</head>http://www.ddit.or.kr/
+
+<body>
+
+	<pre>
+- a 태그 : 페이지 이동을 위한 태그, 이동할 페이지를 href속성에 설정
+- target 속성 : 이동페이지를 새로운 탭 또는 현재 탭에서 실행,
+                             기본값은 target = "_self" : 현재 탭에서 실행
+	</pre>
+
+	<a href="http://www.naver.com" target="_blank">네이버</a>
+	<a href="http://www.daum.net" target="_blank">다음</a>
+	<a href="http://www.google.com" target="_blank">구글</a>
+	<a href="http://www.w3.org">W3C</a>
+	<a href="http://www.ddit.or.kr" target="_blank">대덕인재개발원</a>
+
+	<br>
+	<hr color="black">
+	<br>
+
+	<a id="naver" href="http://localhost/webpro/0823/텍스트서식.html" target="네이버"> <img
+		alt="cloud01.jpg" src="../images/cloud03.jpg">
+	</a>
+	<a id="google" href="./리스트2.html" target="구글"> <img
+		alt="펭귄.jpg" src="../images/펭귄.jpg">
+	</a>
+</body>
+</html>

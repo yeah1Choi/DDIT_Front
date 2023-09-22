@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>Hi~</p>
+	<p>Hola</p>
+	<script type="text/javascript">
+		document.write("hello~");
+
+		// p태그 검색 - 코딩순서대로 실행하기 때문에 p태그를 검색할 수 없다
+//		let vp = document.getElementsByTagName('p'); // 배열로 리턴
+//		vp = document.querySelectorAll('p'); // 배열로 리턴
+
+		// vp = document.querySelector('p'); // 첫번째 p태그를 리턴
+		// 변수 let 타입을 초기화하려면 앞에 let을 빼야한다
+		// - 변수 타입을 쓰면 같은 이름의 다른 변수로 받아드림
+
+		//vp.style.color = "red";
+		//vp.style.fontSize = "50px";
+		
+		var vp = document.getElementsByTagName('p'); // 배열로 리턴
+		var vp = document.querySelectorAll('p');
+		
+		vp[1].style.color = "blue"; // 오류
+		
+		// 변수 var 타입은 초기화를 하려면 변수 타입을 계속 쓴다
+		// - 타입을 써도 알아서 같은 변수라고 생각하고 그 위에 덮듯이 초기화함
+
+ 		console.log(vp.length);
+/*		for (let i = 0; i < vp.length; i++) {
+			vp[i].style.color = "red";
+			vp[i].style.fontSize = "50px";
+		}
+		console.log(i); // let타입은 for문 안에서만 사용할 수 있음 블록 안에서만 사용되는 변수 */
+		
+		for (var j = 0; j < vp.length; j++) {
+			vp[j].style.color = "red";
+			vp[j].style.fontSize = "50px";
+		}
+		console.log(j); // var타입은 블록 밖에서, 함수 전체영역에서 모두 사용가능한 타입
+		console.log(vp);
+		
+		var vp = document.qureySelector('p'); // 첫번째 p를 리턴
+		vp.style.color = "red"; // 오류
+		vp.style.fontSize = "50px"; // 오류
+	</script>
+</body>
+</html>

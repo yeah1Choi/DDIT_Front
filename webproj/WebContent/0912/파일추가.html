@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script type="text/javascript">
+proc1 =()=> {
+	// p태그 생성
+	ptag = document.createElement('p');
+	
+	// input태그 생성  -> 속성(type,name,class)
+	inputtag = document.createElement('input');
+	inputtag.type = "file";
+	inputtag.name = "file";
+	inputtag.className = "file";
+	
+	// button태그 생성 -> 속성(type,innerHTML)
+	buttontag = document.createElement('button');
+	buttontag.type = "button";
+	buttontag.innerHTML = "삭제";
+	buttontag.onclick = function(){del(this);}; 
+	// del(this)만 쓰면 문자열로 인식, 함수 실행을 한 후 함수 안에서 삭제함수를 불러낸다
+	
+	// p에 button 추가
+	ptag.appendChild(inputtag);
+	
+	// p에 input 추가
+	ptag.appendChild(buttontag);
+	
+	// #result1 검색 -> p 추가
+	vres = document.querySelector('#result1');
+	vres.appendChild(ptag);
+}
+
+del = (dd) => {
+	parent = dd.parentNode;
+	parent.remove();
+}
+</script>
+</head>
+<body>
+	<h3>파일추가</h3>
+	<input type="button" value="추가" onclick="proc1()" />
+	<br />
+	<div id="result1">
+		<p>
+			<input type="file" name="file" class="file" />
+			<button type="button" onclick="del(this)">삭제</button>
+		</p>
+	</div>
+	<hr color="red" />
+</body>
+</html>

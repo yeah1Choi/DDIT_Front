@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title>텍스트서식</title>
+		<link rel = "stylesheet" href = "../css/style.css" />
+		<style>
+			h1,h2 {
+				color : darkgreen;
+				background : #F3FDE8;
+			}
+			p {
+				font-size : 1.3 em;
+				border : 2px dotted #A8DF8E;
+				margin : 10px;
+				padding : 20px;
+			}
+			b, strong {
+				background : #FFE5E5;
+			}
+			i, em {
+				font-size : 1.3 rem;
+				font-weight : bold;
+			}
+			mark {
+				background : #FFE5E5;
+				/* 더 안의 괄호가 우선으로 적용된다 */
+			}
+			sup, sub {
+				color : red;
+			}
+			span {
+				background : #FFBFBF;
+				font-size : 1.5 rem;
+			}
+			pre { 
+				background : #F3FDE8;
+				border : 2px solid #FFBFBF;
+				margin : 20px;
+				font-size : 1.5 rem;
+			} 
+		</style>
+	</head>
+
+	<body>
+	<pre>
+	
+block 요소 : 한 줄 전체를 차지하고 줄 끝에서 자동 줄바꿈 / p, h
+inline 요소 : 지정한 글자의 길이만큼 차지함 / a, span, b, strong, i, em, mark, sub, sup
+	
+스타일지정
+- 외부 스타일 : css파일을 외부에 따로 만들어 &lt;link rel = "stylesheet" href = "style.css"/>로 내부에서 외부와 연결
+- 내부 스타일 : html의 head 영역에 &lt;style>&lt;/style> 태그로 설정
+- 인라인 스타일 : 본문의 여는 태그 안에 style = ""로 설정
+* 외부와 내부가 부딪힐때 내부 스타일로 적용
+* 내부와 인라인이 부딪힐때 인라인 스타일이 적용
+	</pre>
+	
+	<h1>냉방병</h1>
+	
+	<h2>정의</h2>
+	<p>&nbsp;더운 여름철에 환기가 잘 되지 않는 <span style = "background:gold; font-size : 1.5 rem;">밀폐된 공간</span>에서 냉방이 지속될 경우 
+	<i>가벼운 감기, 몸살, 권태감</i> 같은 증상이 나타나는 것을 말한다. 
+	다시 말해 <b>냉방병</b>이란 어떤 질병을 가리키는 용어라기보다는 
+	유사한 증상을 나타내는 여러 질환군을 총칭하는 <sup>증후군</sup>의 일종이라고 말할 수 있다.</p>
+	
+	<h2>원인</h2>
+	<p>예로부터 <em>'여름 감기는 개도 안 걸린다'</em>는 말이 있다. 
+	그렇지만 현대의 여름은 성능이 좋은 에어컨 덕분에 실내가 서늘하고, 
+	때로는 긴 팔 덧옷이 필요할 때도 있어 이 말은 현대에는 어울리지 않는다. 
+	우리가 흔히 <b>냉방병</b>이라고 부르는 것의 원인은 3가지로 구분된다.</p>
+	
+	<h2>증상</h2>
+	<p>
+	<strong>호흡기 증상</strong><br>
+	감기와 비슷한 증세가 많다. 
+	두통이나 콧물, 재채기, 코막힘의 증상을 주로 호소하는데, 
+	감기에 한번 걸리면 잘 낫지 않는다. 
+	몸이 나른하고 쉽게 피로해지고 두통이 흔하다. 
+	손발이 붓거나 어깨와 팔다리가 무겁고, 허리나 무릎, 발목 등의 관절이 무겁게 느껴지며 
+	심할 때는 통증이 느껴질 수도 있다.
+	</p>
+	
+	<p>
+	<strong>위장 장애</strong><br>
+	소화 불량과 하복부 불쾌감이 있고, 심하면 설사를 하기도 한다.
+	</p>
+	<p>
+	<strong>여성의 추가 증상</strong><br>
+	여성은 남성보다 냉방병에 취약하여 생리가 불규칙해지거나 생리통이 심해지기도 한다.
+	</p>
+	<p>
+	<strong>만성 질병의 악화</strong><br>
+	이미 만성 질병을 가지고 있는 경우에는 
+	면역 기능이 떨어져 있는 상태이므로 냉방병의 영향이 더 심할 수 있다.
+	</p>
+	
+	<h2>진단/검사</h2>
+	<p>
+	여름철 장기간 냉방에 노출된 후 앞서 언급된 호흡기 증상 위장 장애 등의 
+	관련 증상이 나타날 경우 병력 청취를 통해 임상적으로 진단할 수 있다. 
+	그러나 <mark><strong>증상이 심하거나 오래 지속될 경우 <sub>레지오넬라증</sub>을 감별하기 위해 
+	가래 검사, 소변 또는 혈청 검사</strong></mark>를 시행할 수 있다.
+	</p>
+	</body>
+</html>

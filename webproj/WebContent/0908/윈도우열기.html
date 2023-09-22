@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>윈도우열기(메인창)</title>
+<link rel="stylesheet" href="../css/style.css">
+<script type="text/javascript">
+var proc1 = () => {
+//	window.open("../0907/String객체Ex.html", "_self"); // 새창이 아닌 현재창에서 열림
+	window.open("../0907/String객체Ex.html", "String객체연습", 
+			"width=500 height=400 top=200 left=100"); // 'String객체연습'은 이름속성이지만 html어디에도 안보임
+}
+var proc2 =()=> {
+	window.open("subwindow.html","윈도우 서브",
+			"width=500 height=400 top=200 left=100");
+}
+</script>
+</head>
+<body>
+	<h2>새로운창열기</h2>
+	<p></p>
+	<input type="button" value="click" onclick="proc1()">
+	<br>
+	<hr color="red">
+	
+	<h2>새로운창열기</h2>
+	<p>자식 창에서 입력해서 결과를 현재 창에 출력한다</p>
+	<input type="button" value="click" onclick="proc2()">
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+</body>
+</html>

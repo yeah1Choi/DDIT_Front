@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script type="text/javascript">
+
+today1 = new Date();
+
+var proc1 = () => {
+	today2 = new Date(990000000*1000);
+	today3 = new Date("2000.1.1");
+	today4 = new Date(2000,0,1);
+	
+	//출력내용
+	str = `현재 날짜와 시간: ${today1} <br>`;
+	str += `1970/01/01 이후의 밀리 초(990000000): ${today2} <br>`;
+	str += `"2000.1.1": ${today3} <br>`;
+	str += `2000,1,1: ${today4} <br>`;
+	
+	str += `toLocaleString: ${today1.toLocaleString()} <br>`;
+	str += `toLocaleDateString: ${today1.toLocaleDateString()} <br>`;
+	
+	//출력
+	document.querySelector('#result1').innerHTML = str;
+}
+var proc2 = () => {
+	day = today1.getDay();
+	console.log(day);
+	
+	switch(day) {
+	case 0:
+		res = "Sunday";
+		break;
+	case 1:
+		res = "Monday";
+		break;
+	case 2:
+		res = "Tuesday";
+		break;
+	case 3:
+		res = "Wendsday";
+		break;
+	case 4:
+		res = "Thursday";
+		break;
+	case 5:
+		res = "Friday";
+		break;
+	case 6:
+		res = "Saturday";
+		break;
+	}
+	//출력내용
+	str = `today : ${today1.toLocaleString()} <br>`;
+	str+= `today is ${res}`;
+	
+	document.querySelector('#result2').innerHTML = str;
+}
+
+var proc3 = () => {
+	//배열선언
+	const arrday = ["Sunday", "Monday", "Tuesday", "Wendsday", "Thursday", "Friday", "Saturday"]
+	
+	day = today1.getDay(); // 4
+	
+	res = arrday[day];
+	
+	str = `today : ${today1.toLocaleString()} <br>`;
+	str+= `today is ${res}`;
+	
+	document.querySelector('#result3').innerHTML = str;
+}
+
+var proc4 = () => {
+	myday = new Date("1997.1.22");
+	myday = new Date(1997,1-1,22);
+	
+	todayTime = today1.getTime();
+	mydayTime = myday.getTime();
+	
+	times = todayTime - mydayTime;
+	
+	res = times/1000/60/60/24/365;
+	
+	str = `today : ${today1.toLocaleString()} <br>`;
+	str += `Birthday : ${myday.toLocaleString()} <br>`;
+	str += `I live [${res}]days til today. <br>`;
+	
+	countDay = new Date("2019.4.3");
+	
+	countDayTime = countDay.getTime();
+	
+	times = todayTime - countDayTime;
+	
+	str += `It is been ${times}days. <br>`;
+	document.querySelector('#result4').innerHTML = str;
+}
+
+var proc5 = () => {
+	//100일의 milliseconds
+	ms100d = 100*1000*60*60*24;
+	console.log(ms100d);
+	
+	//오늘의 millisec + 100일의 millisec
+	ms = today1.getTime() + ms100d;
+	
+	day100 = new Date(ms);
+	
+	document.querySelector('#result5').innerHTML = day100;
+}
+
+var proc6 = () => {
+	//선택한 날의 값(String)을 가져온다
+ 	selday = document.getElementById("sd").value;
+	
+	//그 값으로 Date 객체 생성
+	myday = new Date(selday);
+	
+	todayTime = today1.getTime();
+	
+	//현재날짜와 간격을 구한다
+	times = todayTime - myday;
+	res = times / 1000 / 60 / 60 / 24;
+	
+	// 7일이 지났는지 비교
+	if(res > 7) {
+		as = "7일 경과";
+	} else {
+		as = "교환가능";
+	}
+	
+	//출력내용
+	str = `오늘날짜 : ${today1.toLocaleString()} <br>`;
+	str += `구입날짜 : ${myday.toLocaleString()} <br>`;
+	str += `${as} <br>`;
+	
+	document.querySelector('#result6').innerHTML = str;
+}
+</script>
+</head>
+<body>
+	<h3>Date 객체 생성</h3>
+	<p></p>
+	<input type="button" value="click" onclick="proc1()">
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+
+	<h3>Date 객체 : 요일 구하기</h3>
+	<p>getDay() : 0 ~ 6으로 리턴, 일요일부터 시작</p>
+	<input type="button" value="SwitchCase" onclick="proc2()">
+	<input type="button" value="Array" onclick="proc3()">
+	<br>
+	<div id="result2"></div>
+	<div id="result3"></div>
+	<hr color="red">
+
+	<h3>Date 객체 : 태어난 날 이후 시간,날짜 계산</h3>
+	<p>getTime() : 경과시간 milliseconds 단위</p>
+	<p>millisecond / 1000 / 60 / 60 / 24 / 365 : 초 / 분 / 시 / 일 / 년도 별 계산</p>
+	<input type="button" value="click" onclick="proc4()">
+	<br>
+	<div id="result4"></div>
+	<hr color="red">
+
+	<h3>Date 객체 : 100일후의 날짜(getTime())</h3>
+	<input type="button" value="click" onclick="proc5()">
+	<br>
+	<div id="result5"></div>
+	<hr color="red">
+
+	<h3>Date 객체 : 교환기간구하기: getTime()</h3>
+	<p>구입날짜</p>
+	<input type="date" id="sd">
+	<input type="submit" value="click" onclick="proc6()">
+	<br>
+	<div id="result6"></div>
+	<hr color="red">
+</body>
+</html>

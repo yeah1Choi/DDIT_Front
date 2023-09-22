@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+form {
+	border: 2px dotted orange;
+	margin: 20px;
+	padding: 10px;
+	height: auto;
+}
+label {
+	display:inline-block;
+	width: 100px;
+}
+input[type=button] {
+	padding: 3px 20px;
+	margin-top: 20px;
+}
+</style>
+<script type="text/javascript">
+	var proc1 = function(op) {
+		// 입력한 값 가져오기
+		xvalue = parseInt(document.querySelector('#x').value);
+		yvalue = parseInt(document.querySelector('#y').value);
+		// 위의 전역 변수가 지역변수(ex.let xvalue)였다면 함수 호출시 인수를 적어줘야한다
+
+		// 연산자 비교 - 함수 호출 => 결과값 리턴 받는다
+		switch (op) {
+		case "+":
+			res = add(); // 여기에 (인수)를 적어야한다고 => res = add(xvalue,yvalue);
+			break;
+		case "-":
+			res = sub();
+			break;
+		case "*":
+			res = multi();
+			break;
+		case "/":
+			res = divide();
+			break;
+		}
+
+		// 출력
+
+	}
+
+	var add = function() {
+		return xvalue + yvalue;
+	}
+	var sub = function() {
+		return xvalue - yvalue;
+	}
+	var multi = function() {
+		return xvalue * yvalue;
+	}
+	var divide = function() {
+		return xvalue / yvalue;
+	}
+</script>
+</head>
+<body>
+	<form action="">
+		<label>첫번째</label> 
+		<input id="x" type="text"> <br> 
+		<label>두번째</label>
+		<input id="y" type="text"> <br> 
+		<label>결과</label> 
+		<input id="sum" type="text"> <br> 
+		<input type="button" value="+" onclick="proc1('+')"> 
+		<input type="button" value="-" onclick="proc1('-')"> 
+		<input type="button" value="*" onclick="proc1('*')"> 
+		<input type="button" value="/" onclick="proc1('/')"> <br> <br>
+		<p>첫번째 값 : <span id="sp1"></span></p>
+		<p>두번째 값 : <span id="sp2"></span></p>
+		<p>결과 : <span id="sp3"></span></p>
+	</form>
+</body>
+</html>

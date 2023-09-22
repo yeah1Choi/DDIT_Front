@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script type="text/javascript">
+const myCar = { 
+		model: "bmw",
+		color : "white",
+		speed : 100,
+		/* stop : function() {
+		      this.speed = 0; }, */
+		stop() { this.speed = 0; },
+		/* accel : function() {
+		      this.speed = 150; } */
+		accel() { this.speed = 50; }
+};
+// 출력함수 정의
+var printObj = () => {
+	str = "";
+	str+= `이름 : ${myCar.name} <br>`;
+	str+= `속도 : ${myCar.speed} <br>`;
+	
+	document.getElementById('result1').innerHTML = str;
+}
+
+var proc1 = () => {
+	// 객체 정보 출력(호출)
+	printObj();
+}
+
+rect = {};
+
+rect.garo = 2;
+rect.sero = 5;
+
+rect.getArea = function() {
+	return this.garo * this.sero
+}
+
+rect.getCircum = function() {
+	return (this.garo + this.sero) * 2;
+}
+
+var proc2 = () => {
+	
+/* 	rect.garo = 2;
+	rect.sero = 5;
+	
+	rect.getArea = function() {
+		return this.garo * this.sero
+	}
+	
+	rect.getCircum = function() {
+		return (this.garo + this.sero) * 2;
+	} */
+	
+	// 출력함수 호출
+	printRect("result2");
+	
+	// var proc2 함수는 입력한 값을 출력 - 새로 입력한 값으로 항상 새로 출력
+}
+
+// 출력함수정의
+var printRect = (result) => {
+	str = "";
+	
+	str += `가로 : ${rect.garo} <br>`;
+	str += `세로 : ${rect.sero} <br>`;
+	
+	area = rect.getArea();
+	str += `면적 : ${area} <br>`;
+	str += `둘레 : ${rect.getCircum()} <br>`;
+	
+	document.getElementById(result).innerHTML = str;
+}
+	
+var proc3 = () => 
+{
+	//가로입력
+	a = prompt("가로입력");
+	
+	//세로입력
+	b = prompt("세로입력");
+	
+	//입력한 값을 rect객체의 속성에 대입
+	//rect.garo = a;
+	rect.garo = a;
+	rect.sero = b;
+	
+	//출력함수호출
+	printRect("result3");
+}
+</script>
+</head>
+<body>
+	<h2></h2>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+
+	<h2>rect(사각형) 객체만들기</h2>
+	<p>속성 : garo, sero</p>
+	<p>메소드 : getArea, getCircum</p>
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+
+	<h2>rect(사각형) 객체만들기</h2>
+	<p>속성 : garo, sero를 입력한다</p>
+	<p>메소드 : getArea, getCircum</p>
+	<input type="button" value="확인" onclick="proc3()">
+	<br>
+	<br>
+	<div id="result3"></div>
+	<hr color="red">
+</body>
+</html>

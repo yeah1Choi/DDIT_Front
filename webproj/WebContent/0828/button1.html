@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+form {
+	margin: 30px auto;
+	border: 2px solid orange;
+	width: 60%;
+	padding: 20px;
+	/* overflow: auto; */
+}
+label {
+	vertical-align: top;
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+}
+button {
+	width: 50px;
+	height: 30px;
+	border: 1px solid orange;
+	background: none;
+	border-radius: 50px;
+	margin-right: 7px;
+	cursor: pointer;
+}
+textarea,input {
+	box-sizing: border-box;
+}
+textarea {
+	width: 65%;
+}
+input {
+	width: 65%;
+}
+button[type=button] {
+	background: #ddd;
+	margin-left: 30px;
+}
+</style>
+<script>
+function sayHello() {
+	// Html요소 검색하기
+	a = document.getElementsByName('id'); // 배열이라서 .value를 쓸 수 없음
+	vid = a[0].value; // 배열이라서 [i], 값 가져오기
+	
+	// 2. // vid = document.getElementsByName('id')[0].value;
+	
+	alert("hello, " + vid + "!");
+}
+</script>
+</head>
+<body>
+	<form action="button1.jsp" method="post">
+		<label>아이디</label> <input type="text" name="id"> <br> <label>이름</label>
+		<input type="text" name="name"> <br> <label>자기소개</label>
+		<textarea rows="5" cols="50" name = "area"></textarea>
+		<br>
+		<br>
+		<button type="button" onclick="sayHello()">확인</button>
+		<button>전송</button>
+		<button type="submit">전송</button>
+		<button type="reset">취소</button>
+	</form>
+</body>
+</html>

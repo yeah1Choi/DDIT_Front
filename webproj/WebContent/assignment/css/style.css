@@ -1,0 +1,244 @@
+@charset "UTF-8";
+/* 기본값주기 */
+* {
+	padding: 0;
+	margin: 0 auto;
+}
+
+body {
+	font-family: 'Gowun Dodum', sans-serif;
+	background: #eaeaea;
+}
+
+a, p, li, input {
+	text-decoration: none;
+	color: #0B2447;
+	font-family: 'Gowun Dodum', sans-serif;
+	font-size: 16px;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+/* 전체 */
+#container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+/* 헤더 */
+header {
+	width: 100%;
+	height: 120px;
+	background: #0B2447;
+}
+
+header h1 {
+	width: 90%;
+	position: relative;
+	line-height: 120px;
+}
+
+header h1 a {
+	margin-left: 10%;
+	position: relative;
+	font-size: 30px;
+	font-weight: 1000;
+	color: white;
+	text-shadow: 2px 2px 4px #000;
+	z-index: 10;
+}
+
+header img {
+	position: absolute;
+	top: 14%;
+	left: 7%;
+	box-sizing: border-box;
+	width: 100px;
+	z-index: 1;
+}
+
+/* 네비게이션/메뉴바 */
+nav {
+	background: #576CBC;
+	width: 100%;
+	height: 50px;
+}
+
+nav ul {
+	width: 90%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+nav li {
+	line-height: 50px;
+}
+
+nav li a {
+	color: white;
+	transition: all 0.3s;
+}
+
+nav li a:hover {
+	color: #0B2447;
+}
+
+/* 컨텐츠 */
+#contents {
+	width: 90%;
+	height: 600px;
+	display: flex;
+	flex-direction: row;
+	background: #b5dae6;
+}
+/* 사이드 */
+aside {
+	box-sizing: border-box;
+	flex: 20%;
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+/* left */
+aside#left h1 {
+	color: #0B2447;
+	font-size: 25px;
+}
+
+aside#left ul {
+	margin: 20px auto;
+	width: 80%;
+}
+
+aside#left ul li {
+	padding: 5px;
+	background: #fff;
+	border: 1px solid #A5D7E8;
+}
+
+.bd {
+	border-radius: 7px 7px 0 0;
+}
+
+.bd2 {
+	border-radius: 0 0 7px 7px;
+}
+
+aside#left ul li:hover, aside#left ul li:hover a {
+	background: #0B2447;
+	color: #fff;
+}
+/* right */
+aside#right {
+	justify-content: space-evenly;
+}
+
+aside#right div {
+	width: 80%;
+}
+
+#right h4 {
+	font-size: 25px;
+	color: #0B2447;
+	margin-bottom: 5px;
+}
+
+#right p {
+	font-size: 16px;
+	margin: 10px;
+}
+
+.btn {
+	color: #fff;
+	border: 1px solid #19376D;
+	background: #19376D;
+	padding: 1px 10px;
+	border-radius: 50px;
+	transition: all 0.3s;
+}
+
+.btn:hover {
+	cursor: pointer;
+	border: 1px solid #19376D;
+	color: #19376D;
+	background-color: #fff;
+}
+
+.btn2 {
+	border: 1px solid #19376D;
+	font-size: small;
+}
+
+#login .ipwid {
+	width: 60%;
+}
+
+#login .mg10 {
+	margin-bottom: 10px;
+}
+
+#login .loginlb {
+	display: inline-block;
+	float: left;
+	width: 70px;
+	text-align: left;
+}
+
+#login input[name=id] {
+	margin-bottom: 3px;
+}
+
+
+
+/* 컨텐츠의 메인섹션 */
+section#main {
+	background: #fff;
+	flex: 60%;
+	height: 100%;
+	width: 100%;
+	/* border: 1px solid #fff;
+    border-top: none;
+    border-bottom: none; */
+}
+
+section#main article {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+section#main iframe {
+	width: 100%;
+	height: 100%;
+}
+
+/* 푸터 */
+footer {
+	width: 100%;
+	background: #19376D;
+	height: 100px;
+}
+
+footer div {
+	width: 90%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center
+}
+
+footer p {
+	color: white;
+	font-size: 10px;
+}
+
+@media ( max-width : 1200px) {
+}

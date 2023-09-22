@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	margin: 20px;
+	padding: 10px;
+	width: 50%;
+	height: auto;
+	border: 1px solid #ccc;
+	width: 50%;
+}
+</style>
+<script type="text/javascript">
+	//	function scorePro() {	}
+	var scorePro = function() { // 변수에 함수를 대입가능 - html에서 변수에 대입한 함수를 호출해도 실행됨
+		
+		// 입력 - 점수
+		var score = prompt("점수를 입력", "0~100점 사이");
+		
+		// 비교
+		var parseScore = parseInt(score/10); // 스크립트에선 입력받은 String을 숫자처럼 연산이 바로 가능, 정수/정수 = 실수(parseInt()로 정수변환필요)
+		
+		switch(parseScore) {
+			case 10: case 9:
+				res = 'A';
+				break
+			case 8:
+				res = 'B';
+				break
+			case 7:
+				res = 'C';
+				break
+			case 6:
+				res = 'D';
+				break
+			default:
+				res = 'F';
+				break
+		}
+		
+		// 출력내용
+		let str = `점수 : ${score} <br>`;
+		str +=  `학점 : ${res}`;
+		
+		// 출력
+		document.getElementById('result1').innerHTML = str;
+	}
+	
+	var proc2 = function() {
+		//입력
+		var first = prompt("첫번째 사람의 가위바위보를 입력하세요");
+		var second = prompt("두번째 사람의 가위바위보를 입력하세요");
+		
+		//비교
+	 	 if (first == second) {
+	 		res = "비겼습니다";
+		 } else if (first == "가위" && second == "보" ||
+				    first == "바위" && second == "가위" ||
+				    first == "보" && second == "바위") {
+			res = "첫번째 사람이 이겼습니다";
+		 } else if (second == "가위" && first == "보" ||
+				second == "바위" && first == "가위" ||
+				second == "보" && first == "바위") {
+			res = "두번째 사람이 이겼습니다";
+		 } else {
+			res = "입력형식이 틀렸습니다";
+		 } 
+		
+		//출력내용
+		let str = `첫번째 사람 : ${first} <br>`;
+		str += `두번째 사람 : ${second} <br>`;
+		str += `결과 : ${res} <br>`;		
+		
+		//출력
+		document.querySelector('#result2').innerHTML = str;
+	}
+</script>
+</head>
+<body>
+	<h2>점수를 (0 ~ 100)를 입력받아 학점을 출력</h2>
+	<input type="button" value="click" onclick="scorePro()">
+	<br>
+	<div id="result1"></div>
+
+	<hr color="#ccc">
+
+	<h2>두 사람의 가위, 바위, 보를 입력 받아 승자를 출력</h2>
+	<input type="button" value="click" onclick="proc2()">
+	<br>
+	<div id="result2"></div>
+</body>
+</html>

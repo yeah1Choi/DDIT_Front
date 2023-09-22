@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script type="text/javascript">
+var proc1 = () => {
+	//배열선언
+//	arr = [];
+	const arr = new Array();
+	
+	while(true) {
+		//입력
+		input = prompt("이름 입력");
+		
+		//입력한 값 비교 : 공백 or 취소버튼(null) 비교 후 break;
+		if(input == " " || input == null) break;
+		
+		//배열에 저장 : arr.push(입력)
+		arr.push(input)
+	}
+	
+	//배열 출력
+	document.getElementById('result1').innerHTML = arr;
+}
+
+var proc2 = () => {
+	const arr = [];
+	let i = 1;
+	while(true) {
+		//입력
+		input = prompt(`${i}번째 정수 입력`);
+		
+		//비교 => 저장여부확인
+		if(arr.indexOf(input) == -1) arr.push(input);
+		
+		//배열갯수(저장할 배열 데이터 갯수만큼)로 break 비교
+		if(arr.length >= 5) break;
+		i++;
+	}
+	document.querySelector('#result2').innerHTML = arr;
+}
+</script>
+</head>
+<body>
+	<h3>Array 객체 문제 1</h3>
+	<p>prompt()를 이용하여 이름을 계속 입력 받아 배열에 저장하고 출력하는 프로그램을 작성하시오.</p>
+	<p>- 입력의 마지막은 공백 문자를 입력하거나 “취소” 버튼을 눌렀을 때(null)로 한다.</p>
+	<input type="button" value="click" onclick="proc1()">
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+	
+	<h3>Array 객체 문제 2</h3>
+	<p>서로 중복되지 않은 정수 5개를 입력 받아 출력하는 프로그램을 작성하시오</p>
+	<p>indexOf()가 false인 경우 -1을 반환하는 것을 이용해 작성</p>
+	<input type="button" value="click" onclick="proc2()">
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+</body>
+</html>

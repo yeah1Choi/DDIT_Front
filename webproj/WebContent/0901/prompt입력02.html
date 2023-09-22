@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+div {
+	border: 1px dotted green;
+	margin: 20px;
+	padding: 20px;
+	width: 500px;
+	height: auto;
+}
+</style>
+
+<script>
+	function opProc() {
+
+		// 두개의 수와 연산자 입력
+		var num1 = parseInt(prompt("첫번째 숫자 입력"));
+		var num2 = parseInt(prompt("두번째 숫자 입력"));
+
+		var vop = prompt("연산자 입력(+,-,/,*)");
+
+		// 입력 연산자를 비교 후 맞게 계산
+		/* 		if (vop == "+") { // 비교연산할시 띄어쓰기 X
+		 res = num1 + num2;
+		 } else if (vop == "-") {
+		 res = num1 - num2;
+		 } else if (vop == "/") {
+		 res = num1 / num2;
+		 } else if (vop == "*") {
+		 res = num1 * num2;
+		 } else {
+		 res = "연산자 입력 오류입니다";
+		 } */
+
+		switch (vop) { // switch문에선 비교연산자을 사용할 수 없음(변수값을 비교해서)
+		case "+":
+			res = num1 + num2;
+			break;
+		case "-":
+			res = num1 - num2;
+			break;
+		case "/":
+			res = num1 / num2; // 스크립트에서 정수 / 정수 해도 값이 실수로 나옴
+			break;
+		case "*":
+			res = num1 * num2;
+			break;
+		default:
+			res = "연산자 입력 오류입니다";
+			// 소수이라 자릿수 Number 객체의 toFixed('소수자릿수')
+			r1 = res.toFixed(2)
+			break;
+		}
+
+		// 출력
+		var str = `첫번째 숫자 : ${num1}, 두번째 숫자 : ${num2} => 결과 값 : ${res}`;
+		if (vop == '/') {
+			str += `${num1} <br>`
+		}
+		document.getElementById('result').innerHTML = str;
+	}
+</script>
+
+</head>
+<body>
+	<p>두개의 수와 연산자를 입력하여 계산</p>
+	<input type="button" value="click" onclick="opProc()">
+	<div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function func() { // 함수는 어디서 호출을 해줘야 실행이 된다
+		//alert("Welcome")
+
+		// p태그를 검색
+		var vp = document.querySelectorAll('p');
+		for (let i = 0; i < vp.length; i++) {
+			vp[i].style.color = "red";
+			vp[i].style.fontSize = "30px";
+			vp[i].style.backgroundColor = "green";
+		}
+		document.write("erase all! 😋 ");
+	}
+</script>
+</head>
+<body>
+	<p>Hello</p>
+	<p>Goodbye</p>
+	<input type="button" value="comfirm" onclick="func()">
+</body>
+</html>

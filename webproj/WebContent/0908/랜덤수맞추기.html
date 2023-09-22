@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script type="text/javascript">
+
+// random = parshInt.Math.random() * 100 + 1;
+random = Math.floor(Math.random() * 100 + 1);
+console.log(random);
+
+let count = 0;
+
+var proc1 =() => {
+	
+	// 입력값 가져오기 : id = number 를 검색 = vaule
+	numvalue = document.getElementById('number').value;
+	
+	count++;
+	
+	if(numvalue == random) {
+		res = `정답입니다 ╰(*°▽°*)╯<br>`
+		res += `${count}번만에 맞췄습니다.`;
+	} else if(numvalue > random) {
+		res = `더 작은 수를 입력하세요.`;
+	} else {
+		res = `더 큰 수를 입력하세요.`;
+	}
+	
+	document.getElementById('hint').innerHTML = res;
+	document.getElementById('hint').innerHTML = res;
+}
+
+var proc2 = () => {
+	str = [];
+	
+	for(i=0; ;i++) { // 무한루프
+		lotto = Math.floor(Math.random() * 45 + 1);
+		
+		// 중복비교
+		idx = str.indexOf(lotto);
+		if(idx == -1) str.push(" " + lotto);
+		
+		// break 비교
+		if(str.length >= 6) break;
+	}
+	document.getElementById('result2').innerHTML += str + "<br>";
+	
+}
+
+var proc3 = () => {
+	arr = ["가위","바위","보"];
+	
+	rd = Math.floor(Math.random() * 3);
+	
+	com = arr[rd];
+	
+	user = prompt("입력하세요","가위 바위 보");
+	
+	if(user == com) {
+		res = "비겼습니다."
+	} else if(user == "가위" && com == "보" ||
+			user == "바위" && com == "가위" ||
+			user == "보" && com == "바위" ) {
+		res = "이겼습니다."
+	} else {
+		res = "졌습니다."
+	}
+	
+	// 출력
+	str = `user : ${user}<br>`;
+	str += `com : ${com}<br>`;
+	str += `result : 당신은 ${res}`;
+	
+	document.getElementById('result3').innerHTML += str;
+}
+</script>
+</head>
+<body>
+	<h1>Number Guess</h1>
+	<p>1부터 100 사이 숫자 입력</p>
+	<input id="number" type="text">
+	<button type="button" onclick="proc1()">추측</button>
+	<p id="hint"></p>
+	<hr color="red">
+	
+	<h1>로또번호 생성 프로그램</h1>
+	<p>1번 ~ 45번 중 6개의 번호를 추첨</p>
+	<input type="button" value="click" onclick="proc2()">
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+	
+	<h1>가위 바위 보 게임 프로그램</h1>
+	<p>컴퓨터는 랜덤, 사용자는 prompt로 입력 받아서 처리</p>
+	<input type="button" value="click" onclick="proc3()">
+	<br>
+	<div id="result3"></div>
+	<hr color="red">
+</body>
+</html>

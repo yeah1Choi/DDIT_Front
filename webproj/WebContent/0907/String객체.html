@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script type="text/javascript">
+var obj = "근로자는 근로조건의 향상을 위하여 자주적인 단결권·단체교섭권 및 단체행동권을 가진다. 모든 국민은 법 앞에 평등하다.";
+var proc1 = () => {
+	//입력
+	input = prompt("이름입력");
+	
+	//입력한 길이
+//	console.log(input.length);
+	
+	input = input.trim(); // trim() 하지 않으면 공백도 데이터로 인정
+//	console.log(input.length);
+	
+	if(input.length <1) {
+		alert("데이터를 입력");
+		return false; // return : 함수 끝냄
+	}
+	
+	alert(input + "님이 입장")
+}
+
+var proc2 = () => {
+	// 입력한 값 가져오기
+	text = document.getElementById('area').value;
+//	console.log(text);
+	
+	text = text.replace(/\n/g, "<br>");   
+	// '//g' : 정규식  
+	// 엔터('\n')를 <br>로 바꿈
+	
+	document.getElementById('result2').innerHTML = text;
+}
+
+var proc3 = () => {
+	a = obj.substr(4,11);
+//	console.log(a);
+//	console.log("길이 : " + a.length);
+	
+	b = a.trim();
+	
+	str = `obj.substr(4,11) : ${a} <br>`; // '근로조건의 향상을'
+	str += `길이 : ${a.length} <br>`; // 11
+	str += `trim() 후 길이 : ${b.length} <br>`; // 9
+	
+	document.getElementById('result3').innerHTML = str;	
+}
+var proc4 = () => {
+	a = obj.substring(4,11);
+	b = a.trim();
+	
+	str = `obj.substring(4,11) : ${a} <br>`; // '근로조건의'
+	str += `길이 : ${a.length} <br>`; // 7
+	str += `trim() 후 길이 : ${b.length} <br>`; // 5
+	
+	document.getElementById('result4').innerHTML = str;	
+}
+var proc5 = () => {
+	a = obj.slice(4,11);
+	b = a.trim();
+	
+	str = `obj.slice(4,11) : ${a} <br>`; // '근로조건의'
+	str += `길이 : ${a.length} <br>`; // 7
+	str += `trim() 후 길이 : ${b.length} <br>`; // 5
+	
+	document.getElementById('result5').innerHTML = str;	
+}
+
+var proc6 = () => {
+	arr = obj.split(" "); // arr은 배열 - split()은 공백을 기준으로 잘라서 배열로 저장
+	
+	str = `obj의 길이 : ${obj.length} <br>`;
+	str += `arr의 길이 : ${arr.length} <br>`;
+	
+	for(i=0;i<arr.length;i++) {
+		str += `arr[${i}]: ${arr[i]} <br>`;
+	}
+	
+	document.getElementById('result6').innerHTML = str;	
+}
+</script>
+</head>
+<body>
+	<h3>String 객체</h3>
+	<p>trim() : 입력문자 앞뒤의 공백을 없앰, 중간 공백은 못없앰</p>
+	<input type="button" value="click" onclick="proc1()">
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+	
+	<h3>String 객체</h3>
+	<p>replace() : 문자열 변경</p>
+	<textarea id="area" rows="7" cols="50"></textarea><br><br>
+	<input type="button" value="click" onclick="proc2()">
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+	
+	<h3>String 객체 : 문자열 추출</h3>
+	<p>var obj = "근로자는 근로조건의 향상을 위하여 자주적인 단결권·단체교섭권 및 단체행동권을 가진다. 모든 국민은 법 앞에 평등하다."</p>
+	<p>substr(start,length)</p>
+	<p>substring(from,to) : to는 포함되지 않음</p>
+	<p>slice(start,end) : end는 포함되지 않음</p>
+	<input type="button" value="substr" onclick="proc3()">
+	<input type="button" value="substring" onclick="proc4()">
+	<input type="button" value="slice" onclick="proc5()">
+	<br>
+	<div id="result3"></div>
+	<div id="result4"></div>
+	<div id="result5"></div>
+	<hr color="red">
+	
+	<h3>String 객체 :</h3>
+	<p>split(separator, limit) : 구분자로 구분된 문자열을 분리하여 배열로 반환, limit:최몇반환</p>
+	<input type="button" value="click" onclick="proc6()">
+	<br>
+	<div id="result6"></div>
+	<hr color="red">
+</body>
+</html>

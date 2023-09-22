@@ -1,0 +1,49 @@
+스크립트에서 html요소를 검색하기
+
+1. id를 이용한 검색
+  var a = document.getElementById('id이름')
+  var a = document.querySelector('#id이름')
+  
+2. class를 이용한 검색
+  var b = document.getElementsByClassName('class이름')
+  var b = document.querySelector('.class이름') 
+  - 리턴 b의 결과는 배열 : b[0], b[1],...
+  
+  var b = document.querySelector('.class이름')
+  // 같은 class 이름이 여러개라도 첫번쩨 요소만 선택한다
+   
+3. name을 이용한 검색
+  var c = document.getElementsByName('name이름')
+  - 리턴c의 결과는 배열 : c[0], c[1],...
+  
+4. tag 이름을 이용한 검색
+  var d = document.getElementsByTagName('tag이름')
+  var d = document.querySelector('tag이름')
+  - 리턴 d의 결과는 배열 : d[0], d[1],...
+  
+  var d = document.querySelector('tag이름')
+  // 여러개의 같은 tag 이름 중에서 첫번째만 선택한다
+  
+  tag 이름 중 form을 대입시키면 form 태그 내의 요소 중 첫번째 요소만 선택
+  
+  var d = document.querySelectorAll('form')
+  tag 이름 중에서  form을 대입하면  form 태그내의 모든 요소를 선택
+
+  검색 후
+  값을 가져오기 - return 결과형은 String이지만 Stirng이라고 쓰지않음.
+
+ 예시)
+ var a = document.getElementById('price')
+ var res = a.value;
+  
+  * 자바에서 
+  "1000" + "50" => 10050
+  "1000" * "50" => 오류
+  "1000" - "50" => 오류
+  "1000" / "50" => 오류
+  
+  * 자바스크립트에서
+  "1000" + "50" → 100050 → 제대로 계산하고 싶으면 parseInt
+  "1000" * "50" → 실행가능 : 500000 
+  "1000" - "50" → 실행가능 : 950
+  "1000" / "50" → 실행가능 : 200

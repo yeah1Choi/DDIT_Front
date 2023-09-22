@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 추가 삭제</title>
+<link rel="stylesheet" href="../css/style.css">
+<style type="text/css">
+.margin {
+	margin-left: 7px; 
+}
+</style>
+<script type="text/javascript">
+
+arr = ["hello","world","HTML","CSS","JavaScript","JQuery","JSON","AJAX"];
+	
+proc1 = () => {
+	//문자 배열 생성
+	
+	//랜덤 발생
+	rand = Math.floor(Math.random()*arr.length);
+	
+	//문자 객체 생성 - 배열[랜덤]
+	vtext = document.createTextNode(arr[rand]);
+	
+	//p태그 생성
+	ptag = document.createElement('p');
+	
+	//p태그에 문자 객체 추가
+	ptag.appendChild(vtext);
+	
+	//result1 검색
+	vres = document.querySelector('#result1');
+	
+	//result1에 p태그 추가
+	vres.appendChild(ptag);
+	
+}
+
+proc2 = () => {
+	// 삭제할 대상을 선택 - p tag를 선택해 삭제
+	// 첫째부터
+	// child = vres.firstChild;
+	// 막내부터
+	child = vres.lastChild;
+	
+	// 선택한 p태그를 result1에서 삭제
+	vres.removeChild(child);
+}
+
+proc3 = () => {
+	//랜덤발생
+	rand = Math.floor(Math.random()*arr.length);
+	// 문자열객체생성
+	text = document.createTextNode(arr[rand]);
+	
+	// 버튼객체생성 
+	// 1. 버튼태그- 속성부여(type,onclick,innerHTML(태그사이의 글))	
+ 	btn = document.createElement('button');
+	btn.type = "button";
+	btn.innerHTML = "삭제";
+	// ** createElement에 class를 부여하는 방법 **
+//	btn.classList.add('margin');
+//	btn.className = 'margin';
+	btn.setAttribute('class','margin');
+	btn.onclick = function(){
+		// 클릭한 삭제버튼 = this, this객체의 부모(p태그)객체를 선택
+		parent = this.parentNode;
+		
+		// 선택한 객체를 삭제(parent)
+		parent.remove();
+	};
+	
+/*	// 2. 인풋태그 - 속성(type,value,onclick)
+	btn = document.createElement('input');
+	btn.type = "button";
+    // btn.onclick = "del(this)"; // 오류: 문자열 그대로 onclick속성을 부여해 함수의 힘이 없음 
+	btn.value = "삭제"; */
+	
+	// p태그생성
+	ptag3 = document.createElement('p');
+	
+	// p태그에 문자열객체추가
+	ptag3.appendChild(text);
+	
+	// p태그에 버튼객체추가
+	ptag3.appendChild(btn);
+	
+	// result3검색
+	vres = document.querySelector('#result3');
+	
+	// result3에 p태그 추가
+	vres.appendChild(ptag3);
+}
+
+// 생성된 삭제버튼에게 부여되는 삭제 함수
+del = (dd) => {
+	
+	parent = dd.parentNode;
+	parent.remove();
+}
+</script>
+</head>
+<body>
+	<h2>DOM 텍스트 노드 : 추가와 삭제</h2>
+	<ol>
+		<li>랜덤으로 문자열 발생</li>
+		<li>p 태그 생성해서 문자열 객체 추가</li>
+		<li>result1에 추가</li>
+	</ol>
+	<p>*삭제 버큰 클릭시 p태그를 삭제(위부터 :firstChild, 아래부터:lastChild)</p>
+	<input type="button" value="추가" onclick="proc1()">
+	<input type="button" value="삭제" onclick="proc2()">
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+
+	<h2>삭제 버튼 생성</h2>
+	<!-- 
+	1. <button onclick="del()">삭제</button>
+	2. <input type="button" value="삭제" onclick="del()" />
+	 -->
+	<ol>
+		<li>랜덤으로 문자열 발생</li>
+		<li>p 태그 생성해서 문자열 객체 추가</li>
+		<li>p 태그에 삭제 버튼 추가</li>
+		<li>result3에 추가</li>
+	</ol>
+	<p>*삭제 버큰 클릭시 해당 p태그를 삭제</p>
+	<input type="button" value="추가" onclick="proc3()">
+	<br>
+	<div id="result3"></div>
+	<hr color="red">
+</body>
+</html>

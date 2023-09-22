@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	border: 2px dotted orange;
+	margin: 20px;
+	padding: 10px;
+	height: auto;
+}
+</style>
+<script type="text/javascript">
+var arrPrint = function(arr,result,aa) { 
+	// (매개변수:함수 호출시 인수로 전달된 값을 함수 내부에서 사용할 수 있도록 선언한 변수)
+	console.log(arr,result,aa); 
+	
+	str = "";
+	
+	for(let x in arr) {
+		str += arr[x] + "&nbsp;&nbsp;";
+	}
+	
+	//document.getElementById(result).innerHTML = str;
+	document.querySelector("#"+result).innerHTML = str;
+}
+
+var proc1 = function() {
+	const arr = ["사과", "바나나", "복숭아", "수박", "딸기"];
+	
+	// 출력(arr,result1) - 함수호출
+	arrPrint(arr,"result1","korea"); 
+	// (인수(값):함수에 전달할 값을 담은 변수, 데이터 타입 없고 갯수 제약도 없다)
+	// "korea"인수는 무시됨 - 인수의 매개변수인 aa는 선언된 적 없음
+}
+var proc2 = function() {
+	const arr = [];
+	arr[0] = "사과";
+	arr[1] = "바나나";
+	arr[2] = "복숭아";
+	arr[3] = "수박";
+	arr[4] = "포도";
+	
+	// 출력(arr,result2) - 함수호출
+	arrPrint(arr,"result2");
+}
+var proc3 = function() {
+	const arr = new Array();
+	arr[0] = "사과";
+	arr[1] = "바나나";
+	arr[2] = "복숭아";
+	arr[3] = "수박";
+	arr[4] = "망고";
+	
+	// 출력(arr,result3) - 함수호출
+	arrPrint(arr,"result3");
+}
+</script>
+</head>
+<body>
+	<h2></h2>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1"></div>
+	<hr color="red">
+	
+	<h2></h2>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="result2"></div>
+	<hr color="red">
+	
+	<h2></h2>
+	<input type="button" value="확인" onclick="proc3()">
+	<br><br>
+	<div id="result3"></div>
+	<hr color="red">
+</body>
+</html>

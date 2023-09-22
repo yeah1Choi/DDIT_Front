@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table {
+	border: 5px solid #F4D160;
+	margin: 0 auto;
+}
+
+td {
+	width: 200px;
+	height: 60px;
+	text-align: center;
+}
+
+tr#tr01 {
+	background: #F4D160;
+	color: white;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+caption {
+	font-size: 2.0em;
+	margin: 20px;
+	/* border: 2px double #FBEEAC; */
+	/* caption-side: bottom; */
+}
+
+table#tab2 td {
+	width :300px;
+	height: 70px;
+}
+</style>
+</head>
+<body>
+	<table border="1">
+		<caption>VIP고객리스트</caption>
+		<tr id="tr01">
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+	</table>
+	
+	<table id="tab2" border="1">
+		<caption>테이블병합</caption>
+		<tr id="tr01">
+			<td colspan="2">1</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td colspan="2">2</td>
+		</tr>
+		<tr>
+			<td colspan="3">3</td>
+		</tr>
+	</table>
+</body>
+</html>
