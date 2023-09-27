@@ -38,7 +38,7 @@ public class MyBatisUtil {
 	public static SqlSession getSqlSession() {
 		
 		session = sqlSessionFactory.openSession();
-		
+		// openSession(true); 자동 커밋
 		return session;
 	}
 }

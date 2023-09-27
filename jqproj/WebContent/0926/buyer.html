@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	// p태그로 만들어진 buyer이름을 클릭하면
+	$(document).on('click','p',function(){
+		
+		// p 태그를 클릭했을 때 실행되는 이벤트로
+		// p 태그의 class 속성값을 가져와 buyerId에 저장한다
+		/* alert($(this).attr('class')) */
+		buyerId = $(this).attr('class');
+		
+		$.ajax({
+			url : "http://localhost/jqproj/BuyerDetail.do",
+			method : "post",
+			data : {"id" : buyerId},
+			success : function(res){
+				code = "";
+				
+				code += `<table class='table'>`;
+				code += `<tr><td>buyer_id</td><td>${res.buyer_id}<td></tr>`;
+				code += `<tr><td>buyer_name</td><td>${res.buyer_name}<td></tr>`;
+				code += `<tr><td>buyer_lgu</td><td>${res.buyer_lgu}<td></tr>`;
+				code += `<tr><td>buyer_bank</td><td>${res.buyer_bank}<td></tr>`;
+				code += `<tr><td>buyer_bankno</td><td>${res.buyer_bankno}<td></tr>`;
+				code += `<tr><td>buyer_bankname</td><td>${res.buyer_bankname}<td></tr>`;
+				code += `<tr><td>buyer_zip</td><td>${res.buyer_zip}<td></tr>`;
+				code += `<tr><td>buyer_add1</td><td>${res.buyer_add1}<td></tr>`;
+				code += `<tr><td>buyer_add2</td><td>${res.buyer_add2}<td></tr>`;
+				code += `<tr><td>buyer_mail</td><td>${res.buyer_mail}<td></tr>`;
+				code += `</table>`;
+				
+				$('#detail').html(code);
+			},
+			error : function(xhr){
+				alert("상태 : "+xhr.status);
+			},
+			dataType : 'json'
+		})
+	})
+	
+	$('#btn1').on('click',function(){
+		$.ajax({
+			url : "/jqproj/SelectName.do",
+			method : "get",
+			success : function(res){
+				code = "";
+				$.each(res,function(i,v){
+					code += `<p class="${v.buyer_id}">${v.buyer_name}</p>`;
+				})
+				$('#name').html(code);
+			},
+			error : function(xhr){
+				alert("상태 : "+xhr.status);
+			},
+			dataType : 'json'
+		})
+	})
+})
+</script>
+<style type="text/css">
+table {
+	border: 2px solid blue;
+}
+td,th {
+	width: 200px;
+	height: auto;
+	padding: 10px;
+	text-align: center;
+}
+th {
+	color: blue;
+}
+.title {
+	background: lightblue;
+	font-size: 1.5rem;
+}
+.width {
+	width: 400px;
+}
+p {
+	padding: inherit;
+	margin: 0;
+}
+p:hover {
+	background: lightblue;
+}
+.table {
+	border: 0;
+}
+.table td {
+	text-align: left;
+} 
+#name {
+padding: 0;
+}
+#name p{
+padding: 10px;
+}
+</style>
+</head>
+<body>
+	<h2></h2>
+	<input type="button" value="click" id="btn1" />
+	<br />
+	<div id="result1">
+		<table border="1">
+			<tr class="title">
+				<th>거래처이름</th>
+				<th class="width">거래처상세정보</th>
+			</tr>
+			<tr>
+				<td id="name"></td>
+				<td id="detail"></td>
+			</tr> 
+		</table>
+	</div>
+	<hr color="red" />
+</body>
+</html>

@@ -2,17 +2,17 @@
 <%@page import="java.util.List"%>
 <%@page import="kr.or.ddit.mybatis.config.MyBatisUtil"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%
-	// Å¬¶óÀÌ¾ðÆ®¿¡¼­ Àü¼ÛµÇ´Â °ªÀ» ¹Þ´Â´Ù
+	// í´ë¼ì´ì–¸íŠ¸ì—ì„œ ì „ì†¡ë˜ëŠ” ê°’ì„ ë°›ëŠ”ë‹¤
 
-// DBÃ³¸®
+// DBì²˜ë¦¬
 SqlSession sql = MyBatisUtil.getSqlSession();
 
 List<LprodVO> lprodList = sql.selectList("lprod.selectLprod");
 
-// list·Î json °´Ã¼ ¹è¿­À» »ý¼ºÇÑ´Ù
+// listë¡œ json ê°ì²´ ë°°ì—´ì„ ìƒì„±í•œë‹¤
 %>
 
 [

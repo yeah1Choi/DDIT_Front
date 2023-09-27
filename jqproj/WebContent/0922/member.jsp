@@ -2,23 +2,23 @@
 <%@page import="java.util.List"%>
 <%@page import="kr.or.ddit.mybatis.config.MyBatisUtil"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%
-	// Å¬¶óÀÌ¾ğÆ® Àü¼Û½Ã µ¥ÀÌÅÍ ¹Ş±â - id, pass
-// Áö±İ ÇöÀç´Â ¾øÀ½
+	// í´ë¼ì´ì–¸íŠ¸ ì „ì†¡ì‹œ ë°ì´í„° ë°›ê¸° - id, pass
+// ì§€ê¸ˆ í˜„ì¬ëŠ” ì—†ìŒ
 
-// DB¸¦ ÀÌ¿ëÇÑ crud Ã³¸®¸¦ ÇÑ´Ù
-// MyBatisUtil => mybatis-config.xml ÆÄÀÏÀ» Àç·á·Î ÇØ¼­ 
-// => Factory »ı¼º => SqlSessionÀ» »ı¼º => 
-// => MybatisUtil¿¡¼­ SqlSessionÀ» ¾ò¾î¿Â´Ù
+// DBë¥¼ ì´ìš©í•œ crud ì²˜ë¦¬ë¥¼ í•œë‹¤
+// MyBatisUtil => mybatis-config.xml íŒŒì¼ì„ ì¬ë£Œë¡œ í•´ì„œ 
+// => Factory ìƒì„± => SqlSessionì„ ìƒì„± => 
+// => MybatisUtilì—ì„œ SqlSessionì„ ì–»ì–´ì˜¨ë‹¤
 SqlSession sql = MyBatisUtil.getSqlSession();
 
-// SqlSessionÀ¸·Î mapper ÆÄÀÏÀÇ sql¹®À» ½ÇÇàÇÑ´Ù => °á°ú°ªÀ» ¾ò´Â´Ù
+// SqlSessionìœ¼ë¡œ mapper íŒŒì¼ì˜ sqlë¬¸ì„ ì‹¤í–‰í•œë‹¤ => ê²°ê³¼ê°’ì„ ì–»ëŠ”ë‹¤
 // select * from member
 List<MemberVO> memlist = sql.selectList("member.selectMember");
 
-// crud Ã³¸®°á°ú·Î ÀÀ´äµ¥ÀÌÅÍ¸¦ »ı¼º - json ¹è¿­°´Ã¼
+// crud ì²˜ë¦¬ê²°ê³¼ë¡œ ì‘ë‹µë°ì´í„°ë¥¼ ìƒì„± - json ë°°ì—´ê°ì²´
 %>
 
 [
@@ -26,7 +26,7 @@ List<MemberVO> memlist = sql.selectList("member.selectMember");
 	for (int i = 0; i < memlist.size(); i++) {
 	MemberVO memVo = memlist.get(i);
 	if (i > 0) out.print(",");
-	// json °´Ã¼ »ı¼º
+	// json ê°ì²´ ìƒì„±
 %>
 
 <%-- json object --%>

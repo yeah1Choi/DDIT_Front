@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//	vbtn = document.querySelector('#btn1');
+		//	vbtn.addEventListener('click',function(){})
+		$('#btn2')
+				.on(
+						'click',
+						function() {
+							// 입력한 값 가져오기
+							vid = $('#id').val().trim();
+							vpass = $('#pass').val().trim();
+
+							// 입력 여부 확인하기
+							if (vid.length < 1) {
+								alert("아이디 입력을 해주세요");
+								return false;
+							}
+							if (vpass.length < 1) {
+								alert("비밀번호 입력을 해주세요");
+								return false;
+							}
+
+							// 모두 입력되면 서버로 보내기
+							$
+									.ajax({
+										url : '/jqproj/SelectById.do',
+										type : 'post',
+										data : {
+											"id" : vid,
+											"pass" : vpass
+										},
+										success : function(res) {
+											if (res.sw == "ok") {
+												// 출력
+												code = `<table border='1'>`;
+												code += `<tr> <td> 아이디 </td>`;
+												code += `<td> ${res.id} </td> </tr>`;
+												code += `<tr> <td> 이름 </td>`;
+												code += `<td> ${res.name} </td> </tr>`;
+												code += `<tr> <td> 이메일 </td>`;
+												code += `<td> ${res.mail} </td> </tr>`;
+												code += `<tr> <td> 전화번호 </td>`;
+												code += `<td> ${res.hp} </td> </tr>`;
+												code += `<tr> <td> 주소 </td>`;
+												code += `<td> ${res.addr} </td> </tr>`;
+												code += `</table>`;
+
+												$('#result2').html(code);
+											} else {
+												alert("일치하는 데이터가 없습니다");
+											}
+										},
+										error : function(xhr, textStatus,
+												errorThrown) {
+											// 본래 파라미터가 3개나 생략해서 1만 쓰기도함, 
+											alert("상태 : " + xhr.status + "\n"
+													+ xhr.statusText + "\n"
+													+ errorThrown);
+										},
+										dataType : 'json'
+									})
+						})
+
+		$('#btn1').on('click', function() {
+			$.ajax({
+				url : 'memberController.jsp',
+				type : 'get',
+				success : function(res) {
+					code = "<table border = '1'>";
+					code += "<tr><th>아이디</th>";
+					code += "<th>이름</th>";
+					code += "<th>전화번호</th>";
+					code += "<th>주소</th></tr>";
+
+					$.each(res, function(i, v) {
+						code += "<tr><td>" + v.id + "</td>";
+						code += "<td>" + v.name + "</td>";
+						code += "<td>" + v.hp + "</td>";
+						code += "<td>" + v.addr + "</td></tr>";
+					})
+
+					code += "</table>";
+
+					$('#result1').html(code);
+				},
+				error : function(xhr) {
+					alert("상태 : " + xhr.status);
+				},
+				dataType : 'json'
+			})
+		})
+
+	})
+</script>
+</head>
+<body>
+	<h2>전체 데이터 가져오기</h2>
+	<input type="button" value="click" id="btn1" />
+	<br />
+	<div id="result1"></div>
+	<hr color="red" />
+
+	<h2>입력 데이터 가져오기</h2>
+	<form action="">
+		<input type="text" placeholder="아이디입력" id="id" /> <br> <input
+			type="password" placeholder="비밀번호입력" id="pass" /> <br> <input
+			type="button" value="click" id="btn2" />
+	</form>
+	<br />
+	<div id="result2"></div>
+	<hr color="red" />
+</body>
+</html>
