@@ -40,7 +40,7 @@ public class ProdDaoImpl implements IProdDao {
 		ProdVO vo = null;
 		
 		try {
-			vo = (ProdVO) sqlSession.selectList("prod.selectByIdDetail", pid);
+			vo = (ProdVO) sqlSession.selectOne("prod.selectByIdDetail", pid);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
