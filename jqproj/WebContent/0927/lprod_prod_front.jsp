@@ -9,12 +9,11 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/jquery-3.7.1.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script type="text/javascript">
 	$(function(){
 		// 단축메뉴
@@ -41,7 +40,7 @@
 					$('#lprod').html(code);
 				}); --%>
 		
-		// lprod list 출력
+		// 확인버튼 클릭시 lprod list 출력
 		$('#btn1').on('click',function(){
 			$.ajax({
 				url : '<%=request.getContextPath()%>/selectLprod.do',
@@ -51,7 +50,9 @@
 					$.each(res,function(i,v){
 						code += `<option value="${v.lprod_gu}">${v.lprod_nm}</option>`;
 					})
+					// lprod list 출력
 					$('#lprod').html(code);
+					$('#lprod').trigger('change');
 				},
 				error : function(xhr){
 					alert("상태 : "+xhr.status);
@@ -77,8 +78,12 @@
 						})
 					} else {
 						code += `<option value="0">데이터 없음</option>`;
+						vimg = $("<img src='../images/spongebob.png' alt='spongebob.png'>");
+						$('#result1').empty().append(vimg); // empty()를 사용해서 추가하기 전 result1의 데이터를 싹 지우고 추가
 					}
+					// prod 리스트 출력
 					$('#prod').html(code);
+					$('#prod').trigger('change');
 				},
 				error : function(xhr){
 					alert("상태 : "+xhr.status);
@@ -126,23 +131,32 @@
 	})
 </script>
 <style type="text/css">
-	body {
+body {
 	padding: 20px;
 }
+
 #btn1 {
 	margin: 10px 0;
+}
+img {
+	width: 50%;
+	height: 50%;
 }
 </style>
 </head>
 <body>
 	<input type="button" value="click" id="btn1">
 	<br>
-	<select id="lprod">
-		<!-- lprod 컬럼 값이 option으로 나옴 -->
-	</select>
-	<select id="prod">
-		<!-- lprod로부터 prod 컬럼값이 option으로 나옴 -->
-	</select>
+	<form>
+		<label for="lprod" class="form-label">First-select list</label> 
+		<select id="lprod" class="form-select" name="sellist1">
+			<!-- lprod 컬럼 값이 option으로 나옴 -->
+		</select> 
+		<label for="prod" class="form-label">Second-select list</label> 
+		<select id="prod" class="form-select" name="sellist2">
+			<!-- lprod로부터 prod 컬럼값이 option으로 나옴 -->
+		</select>
+	</form>
 	<div id="result1">
 		<!-- prod의 결과값이 테이블로 나옴 -->
 	</div>
