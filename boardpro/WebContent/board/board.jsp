@@ -5,33 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript"
-	src="http://localhost/boardpro/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="http://localhost/boardpro/js/jquery-3.7.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="../js/board.js"></script>
 <script type="text/javascript">
+mypath = "<%=request.getContextPath()%>";
 $(function(){
-	
-	vtype = $('#stype option:selected').val().trim();
-	vword = $('#sword').val().trim();
-	console.log(vtype, vword);
-
-	$.ajax({
-		url : `${mypath}/boardList.do`;
-		type : 'post',
-		data : {"page" : "1", "stype" : vtype, "sword" : vword},
-		success : function(res){
-			
-		},
-		error : function(xhr){
-			alert("상태 : "+xhr.status);
-		},
-		dataType : 'json'
-	})
+	// 실행하자마자 list출력 - stype, sword 없다
+	$.listBoardServer(1);
 })
 </script>
 <style type="text/css">
@@ -58,10 +41,6 @@ nav {
 	margin: 2%;
 }
 
-nav a {
-	display: none;
-	visibility: hidden;
-}
 </style>
 </head>
 <body>
@@ -94,6 +73,9 @@ nav a {
 			</div>
 		</div>
 	</nav>
+	
+	<br> <br>
+	
 	<div id="result"></div>
 	<div id="pageList"></div>
 </body>

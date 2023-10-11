@@ -63,8 +63,25 @@ public class BoardServiceImpl implements IBoardService {
 		int count = this.getTotalCount(map);
 		
 		// 전체 페이지수 구하기
-		int perList = PageVO.getPerList();
+		int perList = PageVO.getPerList(); // 한 페이지에 출력되는 글 갯수
 		int totalPage = (int)Math.ceil((double)count / perList);
+		
+		// start, end 값 구하기 - 1페이지 1,3  2페이지  4,6  3페이지 7,9 ~ 7페이지 19,21
+		int start = (page - 1) * perList + 1;
+		int end = start + perList - 1;
+		if(end > count) end = count;
+		
+		// 시작페이지와 마지막페이지 구하기 - 1페이지 1,2  2페이지 1,2  3페이지 3,4  4페이지 3,4
+		int perPage = PageVO.getPerPage(); // 현재 브라우저에 출력되는 페이지 갯수
+		int startPage = ((page - 1) / perPage * perPage) + 1;
+		int endPage = startPage + perPage - 1;
+		if(endPage > totalPage) endPage = totalPage;
+		
+		vo.setStart(start);
+		vo.setEnd(end);
+		vo.setStartPage(startPage);
+		vo.setEndPage(endPage);
+		vo.setTotalPage(totalPage);
 		
 		return vo;
 	}
