@@ -16,10 +16,10 @@
 		</div>
 		<br> 
 		<a href="join.jsp" target="iboard">회원가입</a>&nbsp;&nbsp;&nbsp; 
-		<a href="../board/temp.html" target="iboard">게시판</a>
+		<a href="../board/board.jsp" target="iboard">게시판</a>
 	</header>
 	<section>
-		<iframe name="iboard" src="../board/temp.html"></iframe>
+		<iframe name="iboard" src="../board/board.jsp"></iframe>
 	</section>
 </body>
 </html>

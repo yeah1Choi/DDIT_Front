@@ -9,11 +9,11 @@ public interface IReplyService {
 	public int insertReply(ReplyVO vo);
 	
 	// 댓글 삭제 - 반환값 : int, 파라미터값 : int, 메소드명 : deleteReply 
-	public int deleteReply(int replyNo);
+	public int deleteReply(int rnum);
 	
 	// 댓글 수정 - 반환값 : int, 파라미터값 : vo, 메소드명 : updateReply 
 	public int updateReply(ReplyVO vo);
 	
 	// 댓글 리스트 - 반환값 : List, 파라미터값 : int, 메소드명 : listReply 
-	public List<ReplyVO> listReply(int replyNo);
+	public List<ReplyVO> listReply(int bnum);
 }

@@ -3,21 +3,21 @@
 	PUBLIC "-//mtbatis.org//DTO Mapper 3.0/EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reply">
-	<!-- 댓글 작성(저장) - 결과값 : int, 파라미터값 : vo, id : insertReply --> 
+	<!-- 댓글 작성(저장) - 결과값 : int, 파라미터값 : vo, id : insertReply -->
 	<insert id="insertReply" parameterType="replyVo">
-		insert into replytab
-		values (#{renum},#{bonum},#{name},0,sysdate)
+		insert into replytab 
+		values (replytab_renum_seq.nextval, #{bonum}, #{name}, #{cont}, sysdate)
 	</insert>
-	<!-- 댓글 삭제 - 결과값 : int, 파라미터값 : int, id : deleteReply --> 
+	<!-- 댓글 삭제 - 결과값 : int, 파라미터값 : int, id : deleteReply -->
 	<delete id="deleteReply" parameterType="int">
-		delete
+		delete from replytab where renum = #{data}
 	</delete>
-	<!-- 댓글 수정 - 결과값 : int, 파라미터값 : vo, id : updateReply --> 
+	<!-- 댓글 수정 - 결과값 : int, 파라미터값 : vo, id : updateReply -->
 	<update id="updateReply" parameterType="replyVo">
-		update
+		update replytab set cont = #{cont}, redate = sysdate where renum = #{renum}
 	</update>
-	<!-- 댓글 리스트 결과 - 결과값 : vo, 파라미터값 : int(게시판 번호), id : listReply --> 
+	<!-- 댓글 리스트 결과 - 결과값 : vo, 파라미터값 : int(게시판 번호), id : listReply -->
 	<select id="listReply" parameterType="int" resultType="replyVo">
-		select
+		select * from replytab where bonum = #{bonum} order by renum desc
 	</select>
 </mapper>

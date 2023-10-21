@@ -12,6 +12,7 @@ import kr.or.ddit.board.vo.PageVO;
 public class BoardServiceImpl implements IBoardService {
 	private IBoardDao dao;
 	private static IBoardService service;
+	
 	private BoardServiceImpl() {
 		dao = BoardDaoImpl.getInstance();
 	}

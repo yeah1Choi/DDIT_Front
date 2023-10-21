@@ -21,10 +21,13 @@ public class BoardList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("utf-8");
 
 		// 전송데이터 받기
 		int spage = Integer.parseInt(request.getParameter("page"));
+		
+		
 		// 최초 실행시는 없음
 		String stype = request.getParameter("stype");
 		String sword = request.getParameter("sword");
@@ -37,14 +40,15 @@ public class BoardList extends HttpServlet {
 		
 		// 메소드 호출
 		PageVO pvo = service.pageInfo(spage, stype, sword);
-		
 		// totalPage, startPage, endPage, start, end 결과를 vo객체로 반환 받음
 		
-		System.out.println(pvo.getTotalPage());
-		System.out.println(pvo.getStartPage());
-		System.out.println(pvo.getEndPage());
-		System.out.println(pvo.getStart());
-		System.out.println(pvo.getEnd());
+		System.out.println("totalPage = " + pvo.getTotalPage());
+		System.out.println("startPage = " + pvo.getStartPage());
+		System.out.println("endPage = " + pvo.getEndPage());
+		System.out.println("start = " + pvo.getStart());
+		System.out.println("end = " + pvo.getEnd());
+		// totalPage = 7, startPage = 1, endPage = 2
+		// start = 1, end = 3
 		
 		// 출력할 글 리스트 가져오기
 		Map<String, Object> map = new HashMap<String, Object>();

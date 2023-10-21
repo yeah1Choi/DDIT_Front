@@ -12,60 +12,109 @@ import kr.or.ddit.mybatis.config.MyBatisUtil;
 public class BoardDaoImpl implements IBoardDao {
 	
 	private static IBoardDao dao;
+	private SqlSession session;
 	
-	private SqlSession sqlSession;
-	
+	// 자신을 생성하고 리턴
 	public static IBoardDao getInstance() {
-		if(dao == null) dao = new BoardDaoImpl();
+		if (dao == null) dao = new BoardDaoImpl();
+
 		return dao;
 	}
-
+	
 	@Override
 	public List<BoardVO> selectBoardList(Map<String, Object> map) {
-		sqlSession = MyBatisUtil.getSqlSession();
+		session = MyBatisUtil.getSqlSession();
 		List<BoardVO> list = null;
 		
 		try {
-			list = sqlSession.selectList("board.selectBoardList", map);
+			list = session.selectList("board.selectBoardList", map);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			sqlSession.commit();
-			sqlSession.close();
+			session.commit();
+			session.close();
 		}
-		
 		return list;
 	}
 
 	@Override
 	public int getTotalCount(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return 0;
+		session = MyBatisUtil.getSqlSession();
+		int count = 0;
+		
+		try {
+			count = session.selectOne("board.getTotalCount", map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return count;
 	}
 
 	@Override
 	public int insertBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		session = MyBatisUtil.getSqlSession();
+		int count = 0;
+		
+		try {
+			count = session.insert("board.insertBoard", vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return count;
 	}
 
 	@Override
-	public int deleteBoard(int boardNo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteBoard(int bno) {
+		session = MyBatisUtil.getSqlSession();
+		int count = 0;
+		
+		try {
+			count = session.delete("board.deleteBoard", bno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return count;
 	}
 
 	@Override
 	public int updateBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		session = MyBatisUtil.getSqlSession();
+		int count = 0;
+		
+		try {
+			count = session.update("board.updateBoard", vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return count;
 	}
 
 	@Override
-	public int updateHit(int boardNo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateHit(int bno) {
+		session = MyBatisUtil.getSqlSession();
+		int count = 0;
+		
+		try {
+			count = session.update("board.updateHit", bno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return count;
 	}
-
 
 }
